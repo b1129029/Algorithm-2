@@ -1,0 +1,158 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+//Merge Sort
+void Merge(int* initList, int* mergedList, int l, int m, int n) {
+    int i = l;
+    int j = m+1;
+    int k = l;
+    
+    while (i <= m && j <= n) {
+        if (initList[i] <= initList[j]) {
+            mergedList[k] = initList[i];
+            i++;
+        } else {
+            mergedList[k] = initList[j];
+            j++;
+        }
+        k++;
+    }
+    
+    while (i <= m) { //若左陣列的元素還有剩餘 就把剩下的複製到mergedList 
+        mergedList[k] = initList[i];
+        i++;
+        k++;
+    }
+    while (j <= n) { //若右陣列的元素還有剩餘 就把剩下的複製到mergedList
+        mergedList[k] = initList[j];
+        j++;
+        k++;
+    }
+}
+
+void Merge_pass(int* initList, int* mergedList, int n, int s) {
+    int i;
+    for(i = 1; i <= n-2*s+1; i+=2*s) { 
+        Merge(initList, mergedList, i, i+s-1, i+2*s-1);
+    }
+    
+    if (i+s-1 < n) { //若merge過的區塊不能繼續 就把前面已merge的區塊與後面還沒merge的區塊merge 如 4 4 2 -> 8 2的狀況
+        Merge(initList, mergedList, i, i+s-1, n);
+    } 
+    else {
+        int j;
+        for(j = i; j <= n; j++) { //將merge後剩餘的元素copy到mergedList 
+            mergedList[j]=initList[j];
+        }
+    }
+}
+
+void MergeSort(int* tempList, int n) {
+    int* temp = new int[n+1];
+    for(int l = 1; l <= n; l*=2) {
+        Merge_pass(tempList, temp, n, l);
+        Merge_pass(temp, tempList, n, l);
+    }
+    delete[] temp;
+}
+
+//Heap Sort
+void Adjust (int* a, int root, int n) {
+    int e = a[root];
+    int j;
+    for(j = root*2; j <= n; j*=2) {
+        if(j < n && a[j]<a[j+1]) {
+            j++;
+        }
+        if(e >= a[j]) {
+            break;
+        }
+        a[j/2] = a[j];
+    }
+    a[j/2] = e;
+}
+
+void Heapsort(int* a, int n) {
+    int i;
+    for(i = n/2; i >= 1; i--) {
+        Adjust(a, i, n);
+        
+    }
+    for(i = n-1; i >= 1; i--) {
+        int temp_heap = a[1];
+        a[1] = a[i+1];
+        a[i+1] = temp_heap;
+        Adjust(a, 1, i);
+    }
+}
+
+//InsertionSort
+void Insert(int e, int* a, int i) {
+    while(i > 0 && e < a[i]) {
+        a[i+1] = a[i];
+        i--;
+    }
+    a[i+1]=e;
+}
+void InsertionSort(int* a, int n) {
+    for(int j = 2; j <= n; j++) { //因為我的陣列從第1個開始讀 所以j從2開始比較 
+        int temp = a[j];
+        Insert(temp, a, j-1); //插入的東西僅須跟已排列好的數做比較 
+    }
+}
+
+int main() {
+    srand(time(0));
+	int sort_times;
+	cout<<"請輸入亂數數量"<<endl; 
+	cin>> sort_times;
+	
+	int* arr0=new int[sort_times+1];
+	int* arr_M=new int[sort_times+1];
+	int* arr_H=new int[sort_times+1];
+	int* arr_I=new int[sort_times+1];	
+	for(int i=1; i<=sort_times; i++) {
+	    arr0[i]=arr_M[i]=arr_H[i]=arr_I[i]=rand()%50000+1;
+	}
+	double start, end;
+	cout << "排序前的數列：";
+	for(int i=1; i<=sort_times; i++) {
+	   	cout<<arr0[i]<<" ";
+	}
+	cout << endl;
+		
+	cout << "Merge Sort：";
+	start=clock();
+	MergeSort(arr_M, sort_times);
+	end=clock();
+	cout<<"Merge Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl; 
+	for(int i = 1; i <= sort_times; ++i) {
+	    cout <<arr_M[i] << " ";
+	}
+	cout << endl;
+	    
+	cout << "Heap Sort：";
+	start = clock();
+	Heapsort(arr_H, sort_times);
+	end = clock();
+	cout<<"Heap Sort的時間:"<<(end-start)/CLOCKS_PER_SEC<<endl;
+	for(int i = 1; i <= sort_times; ++i) {
+	    cout <<arr_H[i] << " ";
+	}
+	cout << endl;	
+	    
+	cout << "Insertion Sort：";
+	start = clock();
+	InsertionSort(arr_I, sort_times);
+	end = clock();
+	cout<<"Insertion Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl;
+	for(int i=1; i<=sort_times; ++i) {
+	    cout <<arr_I[i] << " ";
+	}
+	delete[]arr_M;
+	delete[]arr_H;
+	delete[]arr_I;	
+
+	return 0;
+}    
