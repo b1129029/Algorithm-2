@@ -18,7 +18,6 @@ void Merge(int* initList, int* mergedList, int l, int m, int n) {
         }
         k++;
     }
-    
     while (i <= m) { //若左陣列的元素還有剩餘 就把剩下的複製到mergedList 
         mergedList[k] = initList[i];
         i++;
@@ -30,13 +29,11 @@ void Merge(int* initList, int* mergedList, int l, int m, int n) {
         k++;
     }
 }
-
 void Merge_pass(int* initList, int* mergedList, int n, int s) {
     int i;
     for(i = 1; i <= n-2*s+1; i+=2*s) { 
         Merge(initList, mergedList, i, i+s-1, i+2*s-1);
     }
-    
     if (i+s-1 < n) { //若merge過的區塊不能繼續 就把前面已merge的區塊與後面還沒merge的區塊merge 如 4 4 2 -> 8 2的狀況
         Merge(initList, mergedList, i, i+s-1, n);
     } 
@@ -47,7 +44,6 @@ void Merge_pass(int* initList, int* mergedList, int n, int s) {
         }
     }
 }
-
 void MergeSort(int* tempList, int n) {
     int* temp = new int[n+1];
     for(int l = 1; l <= n; l*=2) {
@@ -72,12 +68,10 @@ void Adjust (int* a, int root, int n) {
     }
     a[j/2] = e;
 }
-
 void Heapsort(int* a, int n) {
     int i;
     for(i = n/2; i >= 1; i--) {
-        Adjust(a, i, n);
-        
+        Adjust(a, i, n);  
     }
     for(i = n-1; i >= 1; i--) {
         int temp_heap = a[1];
@@ -115,41 +109,50 @@ int main() {
 	for(int i=1; i<=sort_times; i++) {
 	    arr0[i]=arr_M[i]=arr_H[i]=arr_I[i]=rand()%50000+1;
 	}
+
 	double start, end;
 	cout << "排序前的數列：";
 	for(int i=1; i<=sort_times; i++) {
 	   	cout<<arr0[i]<<" ";
 	}
 	cout << endl;
-		
-	cout << "Merge Sort：";
-	start=clock();
-	MergeSort(arr_M, sort_times);
-	end=clock();
-	cout<<"Merge Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl; 
-	for(int i = 1; i <= sort_times; ++i) {
-	    cout <<arr_M[i] << " ";
+	
+	int mode;
+	cout<<"請選擇排序方法:1.MergeSort 2.HeapSort 3.InsertionSort"<<endl;
+	cin>>mode;
+	if(mode == 1) {
+		cout << "Merge Sort：";
+		start=clock();
+		MergeSort(arr_M, sort_times);
+		end=clock();
+		//cout<<"Merge Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl; 
+		for(int i = 1; i <= sort_times; ++i) {
+	    	cout <<arr_M[i] << " ";
+		}
 	}
 	cout << endl;
-	    
-	cout << "Heap Sort：";
-	start = clock();
-	Heapsort(arr_H, sort_times);
-	end = clock();
-	cout<<"Heap Sort的時間:"<<(end-start)/CLOCKS_PER_SEC<<endl;
-	for(int i = 1; i <= sort_times; ++i) {
-	    cout <<arr_H[i] << " ";
+	if(mode == 2) {
+		cout << "Heap Sort：";
+		start = clock();
+		Heapsort(arr_H, sort_times);
+		end = clock();
+		//cout<<"Heap Sort的時間:"<<(end-start)/CLOCKS_PER_SEC<<endl;
+		for(int i = 1; i <= sort_times; ++i) {
+		    cout <<arr_H[i] << " ";
+		}
 	}
-	cout << endl;	
-	    
-	cout << "Insertion Sort：";
-	start = clock();
-	InsertionSort(arr_I, sort_times);
-	end = clock();
-	cout<<"Insertion Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl;
-	for(int i=1; i<=sort_times; ++i) {
-	    cout <<arr_I[i] << " ";
+	cout << endl;
+	if(mode == 3) {
+		cout << "Insertion Sort：";
+		start = clock();
+		InsertionSort(arr_I, sort_times);
+		end = clock();
+		//cout<<"Insertion Sort的時間: "<<(end-start)/CLOCKS_PER_SEC<<endl;
+		for(int i=1; i<=sort_times; ++i) {
+		    cout <<arr_I[i] << " ";
+		}
 	}
+		
 	delete[]arr_M;
 	delete[]arr_H;
 	delete[]arr_I;	
