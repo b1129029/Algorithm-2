@@ -48,6 +48,7 @@ void MergeSort(int* tempList, int n) {
     int* temp = new int[n+1];
     for(int l = 1; l <= n; l*=2) {
         Merge_pass(tempList, temp, n, l);
+	l*=2;
         Merge_pass(temp, tempList, n, l);
     }
     delete[] temp;
