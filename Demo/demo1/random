@@ -1,3 +1,4 @@
+//作圖需要亂數可以直接用這個跑再複製 但產生太多的話需要分批複製才不會出錯 (剪貼簿不夠你貼) \|/
 #include <iostream>
 #include <ctime>
 using namespace std; 
