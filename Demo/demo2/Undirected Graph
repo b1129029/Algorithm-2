@@ -1,0 +1,323 @@
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <queue>
+#include <stack>
+using namespace std;
+
+class Adjacency_Matrix {
+    private:
+        int node;
+        bool** matrix;
+    
+    public:
+        Adjacency_Matrix(int n) : node(n) {
+            matrix = new bool*[node];
+            for(int i = 0; i<n; i++) {
+                matrix[i] = new bool[node];
+                for(int j = 0; j<node; j++) {
+                    matrix[i][j] = false;
+                }
+            }
+        }
+        
+        
+        int get_node() const {
+        return node;
+        }
+        
+        void add_edge(int u, int v) {
+            if(u != v && !matrix[u][v] && !matrix[v][u]) {
+                matrix[u][v] = matrix[v][u] = true;
+            }
+        }
+        
+        
+        bool has_edge(int u, int v) const {
+            return matrix[u][v];
+        }
+        
+        void display() {
+            cout<<"鄰接矩陣:"<<endl;
+            for(int i = 0; i<node; i++) {
+                for(int j = 0; j<node; j++) {
+                    cout<<matrix[i][j]<<" ";
+                }
+                cout<<endl;
+            }
+        }
+        
+         ~Adjacency_Matrix() {
+             for(int i = 0; i<node; i++) {
+                 delete[] matrix[i];
+             }
+             delete[] matrix;
+        } 
+
+        void write_to_csv(const string& filename) {
+            ofstream file(filename);
+            for (int i = 0; i<node; i++) {
+                for (int j = 0; j<node; j++) {
+                    file<<matrix[i][j];
+                    if (j<node-1) {
+                        file<<",";
+                    }
+                }
+                file<<endl;
+        }
+        file.close();
+        }
+};
+
+class Adjacency_List {
+    private:
+        struct Node {
+            int list_vertex;
+            Node* next;
+        };
+        int node;
+        Node** list;
+
+    public:
+        Adjacency_List(int n) : node(n) {
+            list = new Node* [node];
+            for(int i = 0; i<node; i++) {
+                list[i] = nullptr;
+            }
+        }
+        
+        void add_edge(int u, int v) {
+            if(u != v) {
+                Node* current = list[u];
+                while(current != nullptr) {
+                    if(current->list_vertex == v) {
+                        return;
+                    }
+                    current = current->next;
+                }
+                
+                Node* new_node = new Node;
+                new_node->list_vertex = v;
+                new_node->next = list[u];
+                list[u] = new_node;
+                
+                new_node = new Node;
+                new_node->list_vertex = u;
+                new_node->next = list[v];
+                list[v] = new_node;
+            }
+        }
+        
+        void display() {
+            cout<<"鄰接串列："<<endl;
+            for(int i = 0; i<node; i++) {
+                cout<<"Vertex"<<i<<": ";
+                int* edge_sort = new int[node];
+                int edge_count = 0;
+                Node* current = list[i];
+                while(current != nullptr) {
+                    edge_sort[edge_count++] = current->list_vertex;
+                    current = current->next;
+                }
+                for(int j = 0; j<edge_count-1; j++) {
+                    for(int k = 0; k<edge_count-j-1; k++) {
+                        if(edge_sort[k] > edge_sort[k+1]) {
+                            int temp = edge_sort[k];
+                            edge_sort[k] = edge_sort[k+1];
+                            edge_sort[k+1] = temp;
+                        }
+                    }
+                }
+                for(int i = 0; i<edge_count; i++) {
+                    cout<<edge_sort[i]<<"->";
+                }
+                cout<<"nullptr"<<endl;
+                delete[] edge_sort;
+            }
+        }
+      
+        ~Adjacency_List() {
+            for(int i = 0; i<node; i++) {
+                Node* current = list[i];
+                while(current != nullptr) {
+                    Node* temp = current;
+                    current = current->next;
+                    delete temp;
+                }
+            }
+            delete[] list;
+        }
+        
+};
+
+enum NodeColor {WHITE, GRAY, BLACK};
+
+void DFS(Adjacency_Matrix& graph, int start, NodeColor* color, bool** tree) {
+    int node = graph.get_node();
+    stack<int> stack;
+    stack.push(start);
+    color[start] = GRAY; // 開始訪問時，將節點顏色設為灰色
+    while(!stack.empty()) {
+        int current = stack.top();
+        stack.pop();
+        cout<<current<<" ";
+        bool connected = false;
+        for(int i = 0; i<node; i++) {
+            if(graph.has_edge(current, i) && color[i] == WHITE) {
+                stack.push(i);
+                tree[current][i] = true;
+                tree[i][current] = true;
+                color[i] = GRAY;
+                connected = true;
+                break;
+            }
+        }
+        if(!connected) {
+            for(int i = 0; i<node; i++) {
+                if(color[i] == WHITE) {
+                    stack.push(i);
+                    color[i] = GRAY;
+                    break;
+                }
+            }
+        }
+        color[current] = BLACK;
+    }
+    cout << endl;
+}
+
+void BFS(Adjacency_Matrix& graph, int start, NodeColor* color, bool** tree) {
+    int node = graph.get_node();
+    queue<int> queue;
+    queue.push(start);
+    color[start] = GRAY;
+    while(!queue.empty()) {
+        int current = queue.front();
+        queue.pop();
+        cout<<current<<" ";
+        bool connected = false;
+        for(int i = 0; i<node; i++) {
+            if(graph.has_edge(current, i) && color[i] == WHITE) {
+                queue.push(i);
+                tree[current][i] = true;
+                tree[i][current] = true;
+                color[i] = GRAY;
+                connected = true;
+            }
+        }
+        if(!connected) {
+            for(int i = 0; i<node; ++i) {
+                if(color[i] == WHITE) {
+                    queue.push(i);
+                    color[i] = GRAY;
+                    break;
+                }
+            }
+        }
+        color[current] = BLACK;
+    }
+    cout << endl;
+}
+
+void tree_csv(bool** tree, int node, const string& filename) {
+    ofstream file(filename);
+    for(int i = 0; i<node; i++) {
+        for (int j = 0; j<node; j++) {
+            file<<tree[i][j];
+            if(j<node-1) {
+                file<<",";
+            }
+        }
+        file<<endl;
+    }
+    file.close();
+}
+
+int main() {
+    srand(time(nullptr));
+	int n; // vertex數目
+	int e; // edge數目
+	cout<<"請輸入vertex的數量"<<endl;
+	cin>>n;
+	cout<<"請輸入edge的數量"<<endl;
+	cin>>e;
+	while(e>n*(n-1)/2) { //隨機兩個點會有一條edge
+		cout<<"edge數超出上限，請重新輸入"<<endl;
+		cin>>e;
+	}
+	
+	bool** dfs_tree = new bool*[n];
+	bool** bfs_tree = new bool*[n];
+    for(int i = 0; i < n; ++i) {
+        dfs_tree[i] = new bool[n];
+        bfs_tree[i] = new bool[n];
+        for(int j = 0; j < n; ++j) {
+            dfs_tree[i][j] = false;
+            bfs_tree[i][j] = false;
+        }
+    }
+	
+	Adjacency_Matrix adj_matrix(n);
+	Adjacency_List adj_list(n);
+
+    int i = 0;
+	while(i < e) {
+        int u = rand()%n;
+        int v = rand()%n;
+        if(u != v && !adj_matrix.has_edge(u, v)) { 
+            adj_matrix.add_edge(u, v);
+            adj_list.add_edge(u, v);
+            i++;
+        }
+    }
+	   
+	
+	adj_matrix.display();
+	adj_list.display();
+	
+	int start_vertex;
+	cout<<"請輸入起始vertex(0~"<<(n-1)<<"): "<<endl;
+	cin>>start_vertex;
+	while(start_vertex >= n) {
+	    cout<<"輸入的vertex不存在"<<endl;
+	    cin>>start_vertex;
+	}
+	
+	NodeColor* color = new NodeColor[n];
+    for(int i = 0; i<n; ++i) {
+        color[i] = WHITE;
+    }
+    cout<<"DFS尋訪結果: ";
+    DFS(adj_matrix, start_vertex, color, dfs_tree);
+    cout << "DFS搜索樹:" << endl;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cout << dfs_tree[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    color = new NodeColor[n];
+    for(int i = 0; i<n; ++i) {
+        color[i] = WHITE;
+    }
+    cout<<"BFS尋訪結果: ";
+    BFS(adj_matrix, start_vertex, color, bfs_tree);
+        cout << "BFS搜索樹:" << endl;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cout << bfs_tree[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    adj_matrix.write_to_csv("Adjacency_Matrix.csv");
+    tree_csv(dfs_tree, n, "DFS-Tree.csv");
+    tree_csv(bfs_tree, n, "BFS_Tree.csv");
+    
+    delete[] dfs_tree;
+    delete[] bfs_tree;
+    delete[] color;
+    
+	return 0;
+}
