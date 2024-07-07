@@ -25,6 +25,7 @@ class Ui_Form(QMainWindow):
     def __init__(self):
         super().__init__()
         self.db = MySQLDatabase(host='127.0.0.1', user='root', password='', database='city')
+        self.type_classes = self.db.execute_query("SELECT * FROM `type_classes`")
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -81,48 +82,6 @@ class Ui_Form(QMainWindow):
         self.Site_Button.setSizePolicy(sizePolicy)
         self.Site_Button.setObjectName("Site_Button")
         self.verticalLayout.addWidget(self.Site_Button)
-        self.Weather_36hours_Button = QtWidgets.QPushButton(Form)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Weather_36hours_Button.sizePolicy().hasHeightForWidth())
-        self.Weather_36hours_Button.setSizePolicy(sizePolicy)
-        self.Weather_36hours_Button.setObjectName("Weather_36hours_Button")
-        self.verticalLayout.addWidget(self.Weather_36hours_Button)
-        self.Weather_2days_Button = QtWidgets.QPushButton(Form)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Weather_2days_Button.sizePolicy().hasHeightForWidth())
-        self.Weather_2days_Button.setSizePolicy(sizePolicy)
-        self.Weather_2days_Button.setObjectName("Weather_2days_Button")
-        self.verticalLayout.addWidget(self.Weather_2days_Button)
-        self.Weather_week_Button = QtWidgets.QPushButton(Form)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Weather_week_Button.sizePolicy().hasHeightForWidth())
-        self.Weather_week_Button.setSizePolicy(sizePolicy)
-        self.Weather_week_Button.setObjectName("Weather_week_Button")
-        self.verticalLayout.addWidget(self.Weather_week_Button)
-        self.Type_Button = QtWidgets.QPushButton(Form)
-        self.Type_Button.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Type_Button.sizePolicy().hasHeightForWidth())
-        self.Type_Button.setSizePolicy(sizePolicy)
-        self.Type_Button.setObjectName("Type_Button")
-        self.verticalLayout.addWidget(self.Type_Button)
-        self.Ids_Button = QtWidgets.QPushButton(Form)
-        self.Ids_Button.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Ids_Button.sizePolicy().hasHeightForWidth())
-        self.Ids_Button.setSizePolicy(sizePolicy)
-        self.Ids_Button.setObjectName("Ids_Button")
-        self.verticalLayout.addWidget(self.Ids_Button)
         self.Hotel_Button = QtWidgets.QPushButton(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -157,33 +116,30 @@ class Ui_Form(QMainWindow):
         self.Activity_Button.setIconSize(QtCore.QSize(20, 20))
         self.Activity_Button.setObjectName("Activity_Button")
         self.verticalLayout.addWidget(self.Activity_Button)
-        self.Route_Button = QtWidgets.QPushButton(Form)
-        self.Route_Button.setEnabled(True)
+        self.Weather_36hours_Button = QtWidgets.QPushButton(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Route_Button.sizePolicy().hasHeightForWidth())
-        self.Route_Button.setSizePolicy(sizePolicy)
-        self.Route_Button.setObjectName("Route_Button")
-        self.verticalLayout.addWidget(self.Route_Button)
-        self.Trip_Button = QtWidgets.QPushButton(Form)
-        self.Trip_Button.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.Weather_36hours_Button.sizePolicy().hasHeightForWidth())
+        self.Weather_36hours_Button.setSizePolicy(sizePolicy)
+        self.Weather_36hours_Button.setObjectName("Weather_36hours_Button")
+        self.verticalLayout.addWidget(self.Weather_36hours_Button)
+        self.Weather_2days_Button = QtWidgets.QPushButton(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Trip_Button.sizePolicy().hasHeightForWidth())
-        self.Trip_Button.setSizePolicy(sizePolicy)
-        self.Trip_Button.setObjectName("Trip_Button")
-        self.verticalLayout.addWidget(self.Trip_Button)
-        self.User_Record_Trip_Button = QtWidgets.QPushButton(Form)
-        self.User_Record_Trip_Button.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.Weather_2days_Button.sizePolicy().hasHeightForWidth())
+        self.Weather_2days_Button.setSizePolicy(sizePolicy)
+        self.Weather_2days_Button.setObjectName("Weather_2days_Button")
+        self.verticalLayout.addWidget(self.Weather_2days_Button)
+        self.Weather_week_Button = QtWidgets.QPushButton(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.User_Record_Trip_Button.sizePolicy().hasHeightForWidth())
-        self.User_Record_Trip_Button.setSizePolicy(sizePolicy)
-        self.User_Record_Trip_Button.setObjectName("User_Record_Trip_Button")
-        self.verticalLayout.addWidget(self.User_Record_Trip_Button)
+        sizePolicy.setHeightForWidth(self.Weather_week_Button.sizePolicy().hasHeightForWidth())
+        self.Weather_week_Button.setSizePolicy(sizePolicy)
+        self.Weather_week_Button.setObjectName("Weather_week_Button")
+        self.verticalLayout.addWidget(self.Weather_week_Button)
         self.Travel_Button = QtWidgets.QPushButton(Form)
         self.Travel_Button.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -193,6 +149,24 @@ class Ui_Form(QMainWindow):
         self.Travel_Button.setSizePolicy(sizePolicy)
         self.Travel_Button.setObjectName("Travel_Button")
         self.verticalLayout.addWidget(self.Travel_Button)
+        self.Trip_Button = QtWidgets.QPushButton(Form)
+        self.Trip_Button.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Trip_Button.sizePolicy().hasHeightForWidth())
+        self.Trip_Button.setSizePolicy(sizePolicy)
+        self.Trip_Button.setObjectName("Trip_Button")
+        self.verticalLayout.addWidget(self.Trip_Button)
+        self.Route_Button = QtWidgets.QPushButton(Form)
+        self.Route_Button.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Route_Button.sizePolicy().hasHeightForWidth())
+        self.Route_Button.setSizePolicy(sizePolicy)
+        self.Route_Button.setObjectName("Route_Button")
+        self.verticalLayout.addWidget(self.Route_Button)
         self.User_Record_Travel_Button = QtWidgets.QPushButton(Form)
         self.User_Record_Travel_Button.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -202,6 +176,15 @@ class Ui_Form(QMainWindow):
         self.User_Record_Travel_Button.setSizePolicy(sizePolicy)
         self.User_Record_Travel_Button.setObjectName("User_Record_Travel_Button")
         self.verticalLayout.addWidget(self.User_Record_Travel_Button)
+        self.User_Record_Trip_Button = QtWidgets.QPushButton(Form)
+        self.User_Record_Trip_Button.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.User_Record_Trip_Button.sizePolicy().hasHeightForWidth())
+        self.User_Record_Trip_Button.setSizePolicy(sizePolicy)
+        self.User_Record_Trip_Button.setObjectName("User_Record_Trip_Button")
+        self.verticalLayout.addWidget(self.User_Record_Trip_Button)
         self.User_Record_View_Button = QtWidgets.QPushButton(Form)
         self.User_Record_View_Button.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -211,6 +194,24 @@ class Ui_Form(QMainWindow):
         self.User_Record_View_Button.setSizePolicy(sizePolicy)
         self.User_Record_View_Button.setObjectName("User_Record_View_Button")
         self.verticalLayout.addWidget(self.User_Record_View_Button)
+        self.Type_Button = QtWidgets.QPushButton(Form)
+        self.Type_Button.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Type_Button.sizePolicy().hasHeightForWidth())
+        self.Type_Button.setSizePolicy(sizePolicy)
+        self.Type_Button.setObjectName("Type_Button")
+        self.verticalLayout.addWidget(self.Type_Button)
+        self.Ids_Button = QtWidgets.QPushButton(Form)
+        self.Ids_Button.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Ids_Button.sizePolicy().hasHeightForWidth())
+        self.Ids_Button.setSizePolicy(sizePolicy)
+        self.Ids_Button.setObjectName("Ids_Button")
+        self.verticalLayout.addWidget(self.Ids_Button)
         self.horizontalLayout_3.addLayout(self.verticalLayout)
         self.line = QtWidgets.QFrame(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -266,20 +267,6 @@ class Ui_Form(QMainWindow):
         self.horizontalLayout_3.addWidget(self.line_2)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.Refresh_Button = QtWidgets.QPushButton(Form)
-        self.Refresh_Button.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Refresh_Button.sizePolicy().hasHeightForWidth())
-        self.Refresh_Button.setSizePolicy(sizePolicy)
-        self.Refresh_Button.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("source/img/refresh.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.Refresh_Button.setIcon(icon)
-        self.Refresh_Button.setIconSize(QtCore.QSize(32, 32))
-        self.Refresh_Button.setObjectName("Refresh_Button")
-        self.verticalLayout_2.addWidget(self.Refresh_Button)
         spacerItem = QtWidgets.QSpacerItem(20, 570, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         self.verticalLayout_2.addItem(spacerItem)
         button_layout = QtWidgets.QHBoxLayout()
@@ -361,7 +348,6 @@ class Ui_Form(QMainWindow):
         self.Sync_Table_Button.clicked.connect(self.sync_table_button_clicked)
         self.Insert_Button.clicked.connect(self.insert_button_clicked)
         self.Update_Button.clicked.connect(self.update_button_clicked)
-        self.Refresh_Button.clicked.connect(self.refresh_button_clicked)
         self.Delete_Button.clicked.connect(self.delete_button_clicked)
         self.tableView.clicked.connect(self.on_cell_clicked)
         self.model = QtGui.QStandardItemModel(Form)
@@ -422,21 +408,21 @@ class Ui_Form(QMainWindow):
         self.User_Button.setText(_translate("Form", "用戶(User)"))
         self.City_Button.setText(_translate("Form", "城市(City)"))
         self.Site_Button.setText(_translate("Form", "鄉鎮(Site)"))
-        self.Weather_36hours_Button.setText(_translate("Form", "天氣(Weather_36hours)"))
-        self.Weather_2days_Button.setText(_translate("Form", "天氣(Weather_2Days)"))
-        self.Weather_week_Button.setText(_translate("Form", "天氣(Weather_week)"))
-        self.Type_Button.setText(_translate("Form", "類型(Type)"))
-        self.Ids_Button.setText(_translate("Form", "Ids"))
         self.Hotel_Button.setText(_translate("Form", "旅館(Hotel)"))
         self.Restaurant_Button.setText(_translate("Form", "餐廳(Restaurant)"))
         self.View_Button.setText(_translate("Form", "景點(View)"))
         self.Activity_Button.setText(_translate("Form", "活動(Activity)"))
-        self.Route_Button.setText(_translate("Form", "路線(Route)"))
-        self.Trip_Button.setText(_translate("Form", "旅行(Trip)"))
-        self.User_Record_Trip_Button.setText(_translate("Form", "User_Record_Trip"))
-        self.Travel_Button.setText(_translate("Form", "旅遊(Travel)"))
-        self.User_Record_Travel_Button.setText(_translate("Form", "User_Record_Travel"))
-        self.User_Record_View_Button.setText(_translate("Form", "User_Record_View"))
+        self.Weather_36hours_Button.setText(_translate("Form", "天氣(Weather_36hours)"))
+        self.Weather_2days_Button.setText(_translate("Form", "天氣(Weather_2Days)"))
+        self.Weather_week_Button.setText(_translate("Form", "天氣(Weather_week)"))
+        self.Travel_Button.setText(_translate("Form", "旅遊行程(Travel)"))
+        self.Trip_Button.setText(_translate("Form", "單日行程(Trip)"))
+        self.Route_Button.setText(_translate("Form", "旅遊路線(Route)"))
+        self.User_Record_Travel_Button.setText(_translate("Form", "用戶儲存清單(Travel)"))
+        self.User_Record_Trip_Button.setText(_translate("Form", "用戶儲存清單(Trip)"))
+        self.User_Record_View_Button.setText(_translate("Form", "用戶儲存清單(View)"))
+        self.Type_Button.setText(_translate("Form", "類型(Type)"))
+        self.Ids_Button.setText(_translate("Form", "Ids"))
         self.Sync_Weather_Button.setText(_translate("Form", "Sync_Weather"))
         self.Sync_Table_Button.setText(_translate("Form", "Sync_Table"))
         self.Insert_Button.setText(_translate("Form", "新增 (Insert) "))
@@ -761,6 +747,10 @@ class Ui_Form(QMainWindow):
             for row_num, row_data in enumerate(self.hotel_data):
                 for col_num, col_data in enumerate(row_data.values()):
                     item = QtGui.QStandardItem(str(col_data))
+                    if col_num == 5:
+                        for type_ in self.type_classes:
+                            if type_['type'] == 'hotel' and str(type_['class']) == str(col_data):
+                                item = QtGui.QStandardItem(type_['name'])
                     self.model.setItem(row_num, col_num, item)
             self.tableView.setModel(self.model)
             self.set_tableButtonSelected(self.Hotel_Button)
@@ -777,6 +767,10 @@ class Ui_Form(QMainWindow):
             for row_num, row_data in enumerate(self.restaurant_data):
                 for col_num, col_data in enumerate(row_data.values()):
                     item = QtGui.QStandardItem(str(col_data))
+                    if col_num in [14, 15, 16]:
+                        for type_ in self.type_classes:
+                            if type_['type'] == 'restaurant' and str(type_['class']) == str(col_data):
+                                item = QtGui.QStandardItem(type_['name'])
                     self.model.setItem(row_num, col_num, item)
             self.tableView.setModel(self.model)
             self.set_tableButtonSelected(self.Restaurant_Button)
@@ -792,7 +786,12 @@ class Ui_Form(QMainWindow):
             self.model.setHorizontalHeaderLabels(self.view_data[0].keys())
             for row_num, row_data in enumerate(self.view_data):
                 for col_num, col_data in enumerate(row_data.values()):
+
                     item = QtGui.QStandardItem(str(col_data))
+                    if col_num in [19, 20, 21]:
+                        for type_ in self.type_classes:
+                            if type_['type'] == 'view' and str(type_['class']) == str(col_data):
+                                item = QtGui.QStandardItem(type_['name'])
                     self.model.setItem(row_num, col_num, item)
             self.tableView.setModel(self.model)
             self.set_tableButtonSelected(self.View_Button)
@@ -809,6 +808,10 @@ class Ui_Form(QMainWindow):
             for row_num, row_data in enumerate(self.activity_data):
                 for col_num, col_data in enumerate(row_data.values()):
                     item = QtGui.QStandardItem(str(col_data))
+                    if col_num in [16, 17, 18]:
+                        for type_ in self.type_classes:
+                            if type_['type'] == 'activity' and str(type_['class']) == str(col_data):
+                                item = QtGui.QStandardItem(type_['name'])
                     self.model.setItem(row_num, col_num, item)
             self.tableView.setModel(self.model)
             self.set_tableButtonSelected(self.Activity_Button)
@@ -1374,6 +1377,322 @@ class Ui_Form(QMainWindow):
             layout.addWidget(ok_button, alignment=Qt.AlignCenter)            
             dialog.setLayout(layout)            
             dialog.exec_()
+    def refresh_table(self, table_name):
+        if table_name == "manager":
+            query = "SELECT * FROM `manager`"
+            self.manager_data = self.db.execute_query(query)
+            if self.manager_data:
+                self.model = QtGui.QStandardItemModel(len(self.manager_data), len(self.manager_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.manager_data[0].keys())
+                for row_num, row_data in enumerate(self.manager_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+                self.set_tableButtonSelected(self.Manager_Button)
+            self.tableView.setModel(self.model)
+            print(self.model)
+            self.set_tableButtonSelected(self.Manager_Button)       
+        elif table_name == "user":
+            query = "SELECT * FROM `user`"
+            self.user_data = self.db.execute_query(query)
+            if self.user_data:
+                self.model = QtGui.QStandardItemModel(len(self.user_data), len(self.user_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.user_data[0].keys())
+                for row_num, row_data in enumerate(self.user_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+                self.set_tableButtonSelected(self.User_Button)
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.User_Button)
+        elif table_name == "city":
+            query = "SELECT * FROM `city`"
+            self.city_data = self.db.execute_query(query)
+            if self.city_data:
+                self.model = QtGui.QStandardItemModel(len(self.city_data), len(self.city_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.city_data[0].keys())
+                for row_num, row_data in enumerate(self.city_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.City_Button)
+        elif table_name == "site":
+            query = "SELECT * FROM `site`"
+            self.site_data = self.db.execute_query(query)
+            if self.site_data:
+                self.model = QtGui.QStandardItemModel(len(self.site_data), len(self.site_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.site_data[0].keys())
+                for row_num, row_data in enumerate(self.site_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Site_Button)
+        elif table_name == "weather_36hours":
+            query = "SELECT * FROM `weather_36hours`"
+            self.weather_36hours_data = self.db.execute_query(query)
+            if self.weather_36hours_data:
+                self.model = QtGui.QStandardItemModel(len(self.weather_36hours_data), len(self.weather_36hours_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.weather_36hours_data[0].keys())
+                for row_num, row_data in enumerate(self.weather_36hours_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Weather_36hours_Button)
+        elif table_name == "weather_2days":
+            query = "SELECT * FROM `weather_2days`"
+            self.weather_2days_data = self.db.execute_query(query)
+            if self.weather_2days_data:
+                self.model = QtGui.QStandardItemModel(len(self.weather_2days_data), len(self.weather_2days_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.weather_2days_data[0].keys())
+                for row_num, row_data in enumerate(self.weather_2days_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Weather_2days_Button)
+        elif table_name == "weather_week":
+            query = "SELECT * FROM `weather_week`"
+            self.weather_week_data = self.db.execute_query(query)
+            if self.weather_week_data:
+                self.model = QtGui.QStandardItemModel(len(self.weather_week_data), len(self.weather_week_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.weather_week_data[0].keys())
+                for row_num, row_data in enumerate(self.weather_week_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Weather_week_Button)
+        elif table_name == "type":
+            query = "SELECT * FROM `type`"
+            self.type_data = self.db.execute_query(query)
+            if self.type_data:
+                self.model = QtGui.QStandardItemModel(len(self.type_data), len(self.type_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.type_data[0].keys())
+                for row_num, row_data in enumerate(self.type_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Type_Button)
+        elif table_name == "ids":
+            query = "SELECT * FROM `ids`"
+            self.ids_data = self.db.execute_query(query)
+            if self.ids_data:
+                self.model = QtGui.QStandardItemModel(len(self.ids_data), len(self.ids_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.ids_data[0].keys())
+                for row_num, row_data in enumerate(self.ids_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Ids_Button)
+        elif table_name == "hotel":
+            query = "SELECT * FROM `hotel`"
+            self.hotel_data = self.db.execute_query(query)
+            if self.hotel_data:
+                self.model = QtGui.QStandardItemModel(len(self.hotel_data), len(self.hotel_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.hotel_data[0].keys())
+                for row_num, row_data in enumerate(self.hotel_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        if col_num == 5:
+                            for type_ in self.type_classes:
+                                if type_['type'] == 'hotel' and str(type_['class']) == str(col_data):
+                                    item = QtGui.QStandardItem(type_['name'])
+                        self.model.setItem(row_num, col_num, item)
+                self.tableView.setModel(self.model)
+                self.set_tableButtonSelected(self.Hotel_Button)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Hotel_Button)
+        elif table_name == "restaurant":
+            query = "SELECT * FROM `restaurant`"
+            self.restaurant_data = self.db.execute_query(query)
+            if self.restaurant_data:
+                self.model = QtGui.QStandardItemModel(len(self.restaurant_data), len(self.restaurant_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.restaurant_data[0].keys())
+                for row_num, row_data in enumerate(self.restaurant_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+
+                        item = QtGui.QStandardItem(str(col_data))
+                        if col_num in [14, 15, 16]:
+                            for type_ in self.type_classes:
+                                if type_['type'] == 'restaurant' and str(type_['class']) == str(col_data):
+                                    item = QtGui.QStandardItem(type_['name'])
+                        self.model.setItem(row_num, col_num, item)
+                self.tableView.setModel(self.model)
+                self.set_tableButtonSelected(self.Restaurant_Button)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Restaurant_Button)
+        elif table_name == "view":
+            query = "SELECT * FROM `view`"
+            self.view_data = self.db.execute_query(query)
+            if self.view_data:
+                self.model = QtGui.QStandardItemModel(len(self.view_data), len(self.view_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.view_data[0].keys())
+                for row_num, row_data in enumerate(self.view_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        if col_num in [19, 20, 21]:
+                            for type_ in self.type_classes:
+                                if type_['type'] == 'view' and str(type_['class']) == str(col_data):
+                                    item = QtGui.QStandardItem(type_['name'])
+                        self.model.setItem(row_num, col_num, item)
+                self.tableView.setModel(self.model)
+                self.set_tableButtonSelected(self.View_Button)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.View_Button)
+        elif table_name == "activity":
+            query = "SELECT * FROM `activity`"
+            self.activity_data = self.db.execute_query(query)
+            if self.activity_data:
+                self.model = QtGui.QStandardItemModel(len(self.activity_data), len(self.activity_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.activity_data[0].keys())
+                for row_num, row_data in enumerate(self.activity_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        if col_num in [16, 17, 18]:
+                            for type_ in self.type_classes:
+                                if type_['type'] == 'activity' and str(type_['class']) == str(col_data):
+                                    item = QtGui.QStandardItem(type_['name'])
+                        self.model.setItem(row_num, col_num, item)
+                self.tableView.setModel(self.model)
+                self.set_tableButtonSelected(self.Activity_Button)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Activity_Button)
+        elif table_name == "route":
+            query = "SELECT * FROM `route`"
+            self.route_data = self.db.execute_query(query)
+            if self.route_data:
+                self.model = QtGui.QStandardItemModel(len(self.route_data), len(self.route_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.route_data[0].keys())
+                for row_num, row_data in enumerate(self.route_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Route_Button)
+        elif table_name == "trip":
+            query = "SELECT * FROM `trip`"
+            self.trip_data = self.db.execute_query(query)
+            if self.trip_data:
+                self.model = QtGui.QStandardItemModel(len(self.trip_data), len(self.trip_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.trip_data[0].keys())
+                for row_num, row_data in enumerate(self.trip_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Trip_Button)
+        elif table_name == "user_record_trip":
+            query = "SELECT * FROM `user_record_trip`"
+            self.user_record_trip_data = self.db.execute_query(query)
+            if self.user_record_trip_data:
+                self.model = QtGui.QStandardItemModel(len(self.user_record_trip_data), len(self.user_record_trip_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.user_record_trip_data[0].keys())
+                for row_num, row_data in enumerate(self.user_record_trip_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.User_Record_Trip_Button)
+        elif table_name == "travel":
+            query = "SELECT * FROM `travel`"
+            self.travel_data = self.db.execute_query(query)
+            if self.travel_data:
+                self.model = QtGui.QStandardItemModel(len(self.travel_data), len(self.travel_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.travel_data[0].keys())
+                for row_num, row_data in enumerate(self.travel_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.Travel_Button)
+        elif table_name == "user_record_travel":
+            query = "SELECT * FROM `user_record_travel`"
+            self.user_record_travel_data = self.db.execute_query(query)
+            if self.user_record_travel_data:
+                self.model = QtGui.QStandardItemModel(len(self.user_record_travel_data), len(self.user_record_travel_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.user_record_travel_data[0].keys())
+                for row_num, row_data in enumerate(self.user_record_travel_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.User_Record_Travel_Button)
+        elif table_name == "user_record_view":
+            query = "SELECT * FROM `user_record_view`"
+            self.user_record_view_data = self.db.execute_query(query)
+            if self.user_record_view_data:
+                self.model = QtGui.QStandardItemModel(len(self.user_record_view_data), len(self.user_record_view_data[0].keys()))
+                self.model.setHorizontalHeaderLabels(self.user_record_view_data[0].keys())
+                for row_num, row_data in enumerate(self.user_record_view_data):
+                    for col_num, col_data in enumerate(row_data.values()):
+                        item = QtGui.QStandardItem(str(col_data))
+                        self.model.setItem(row_num, col_num, item)
+            else:
+                self.model.clear()
+            self.tableView.setModel(self.model)
+            self.set_tableButtonSelected(self.User_Record_View_Button)
+        else:
+            dialog = QDialog()
+            dialog.setWindowTitle("錯誤")
+            dialog.setModal(True)
+            dialog.adjustSize()
+            layout = QVBoxLayout()
+            text_label = QLabel("請先選擇表格")
+            text_label.setAlignment(Qt.AlignCenter)
+            layout.addWidget(text_label)
+            layout.addStretch(1)
+            ok_button = QPushButton("確定")
+            ok_button.clicked.connect(dialog.accept)
+            ok_button.setFixedWidth(100)
+            ok_button.setFixedHeight(30)
+            button_layout = QHBoxLayout()
+            button_layout.addStretch(1)
+            button_layout.addWidget(ok_button)
+            button_layout.addStretch(1)
+            layout.addLayout(button_layout)
+            dialog.setLayout(layout)
+            dialog.exec_() 
     def insert_button_clicked(self, button):
         self.set_tableButtonSelected
         self.selectedButton = button
@@ -1414,7 +1733,7 @@ class Ui_Form(QMainWindow):
         def get_city_query():
             city_query = "SELECT `city_id` FROM `city`"
             self.city_data = self.db.execute_query(city_query)
-            return self.city_data
+            return self.city_data       
         def get_site_query(city_id):
             site_query = "SELECT `site_id` FROM `site` WHERE `city_id` = %s"
             self.site_data = self.db.execute_query(site_query, (city_id,))
@@ -1423,6 +1742,22 @@ class Ui_Form(QMainWindow):
             userId_query = "SELECT `email` FROM `user`"
             userId_data = self.db.execute_query(userId_query)
             return userId_data
+        def get_hotel_class_query():
+            hotel_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'hotel' "
+            hotel_class_data = self.db.execute_query(hotel_class_query)
+            return hotel_class_data
+        def get_restaurant_class_query():
+            restaurant_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'restaurant' "
+            restaurant_class_data = self.db.execute_query(restaurant_class_query)
+            return restaurant_class_data
+        def get_view_class_query():
+            view_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'view' "
+            view_class_data = self.db.execute_query(view_class_query)
+            return view_class_data
+        def get_activity_class_query():
+            activity_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'activity' "
+            activity_class_data = self.db.execute_query(activity_class_query)
+            return activity_class_data
         def get_travelId_query():
             travelId_query = "SELECT `TravelId` FROM `travel`"
             travelId_data = self.db.execute_query(travelId_query)
@@ -1478,10 +1813,11 @@ class Ui_Form(QMainWindow):
                 try:
                     insertManagerDataInToSql(managername, manager_password)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
-                    self.set_tableButtonSelected(self.Manager_Button) 
+                    self.refresh_table(table_name)
+                    self.set_tableButtonSelected(self.Manager_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
                     error_msg= f"插入資料錯誤，請先確認資料有無錯誤"
@@ -1519,15 +1855,16 @@ class Ui_Form(QMainWindow):
                     QMessageBox.warning(dialog, "Error", "電子郵件必須包含@")
                     return
                 elif not (6 <= len(userpassword) <= 18):
-                    QMessageBox.warning(dialog, "Error", "密碼長度需界在6-18碼")
+                    QMessageBox.warning(dialog, "Error", "密碼長度需介在6-18碼")
                     return
                 else:
                     try:
                         insertUserDataInToSql(email, username, userpassword)
                         print("success")
-                        success_msg= f"插入資料成功，請刷新表格查看結果"
+                        success_msg= f"插入資料成功!"
                         dialog.accept()
                         show_success_message(success_msg)
+                        self.refresh_table(table_name)
                         self.set_tableButtonSelected(self.User_Button)
                     except Exception as e:
                         print("Error inserting data:", e)
@@ -1555,9 +1892,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertCityDataInToSql(city_id)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.City_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -1593,9 +1931,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertSiteDataInToSql(city_id, site_id)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Site_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -1759,10 +2098,14 @@ class Ui_Form(QMainWindow):
             name_input = QLineEdit()
             layout.addWidget(name_label)
             layout.addWidget(name_input)
-            hotel_label = QLabel("旅館類別:")
-            hotel_input = QLineEdit()
-            layout.addWidget(hotel_label)
-            layout.addWidget(hotel_input)
+            hotel_class_label = QLabel("旅館類別:")
+            hotel_class_combo = QComboBox()
+            hotel_class_combo.addItem("")  
+            cndata = get_hotel_class_query()
+            for idx, class_ in enumerate(cndata):
+                hotel_class_combo.addItem(f"{class_['name']}")
+            layout.addWidget(hotel_class_label)
+            layout.addWidget(hotel_class_combo)
             toldescribe_label = QLabel("描述:")
             toldescribe_input = QLineEdit()
             layout.addWidget(toldescribe_label)
@@ -1842,7 +2185,11 @@ class Ui_Form(QMainWindow):
                 site = site_combo.currentText()
                 add = add_input.text()
                 name = name_input.text()
-                hotel = hotel_input.text()
+                hotel_class = hotel_class_combo.currentText()
+                cn_class = 9
+                for val in cndata:
+                    if val['name'] == hotel_class:
+                        cn_class = str(int(val['class']))
                 toldescribe = toldescribe_input.text()
                 web = web_input.text()
                 tex = tex_input.text()
@@ -1861,11 +2208,12 @@ class Ui_Form(QMainWindow):
                 Px = Px_input.text()
                 Py = Py_input.text()
                 try:
-                    insertHotelDataInToSql(id, cityid, site, add, name, hotel, toldescribe, web, tex, serviceinfo, room, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, lowestprice, ceilingprice, people, Px, Py)
+                    insertHotelDataInToSql(id, cityid, site, add, name, cn_class, toldescribe, web, tex, serviceinfo, room, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, lowestprice, ceilingprice, people, Px, Py)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Hotel_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -1956,17 +2304,29 @@ class Ui_Form(QMainWindow):
             layout.addWidget(pic_describe3_label)
             layout.addWidget(pic_describe3_input)
             class1_label = QLabel("餐廳類型1:")
-            class1_input = QLineEdit()
+            class1_combo = QComboBox()
+            class1_combo.addItem("")  
+            cndata1 = get_restaurant_class_query()
+            for idx, class_ in enumerate(cndata1):
+                class1_combo.addItem(f"{class_['name']}")
             layout.addWidget(class1_label)
-            layout.addWidget(class1_input)
+            layout.addWidget(class1_combo)
             class2_label = QLabel("餐廳類型2:")
-            class2_input = QLineEdit()
+            class2_combo = QComboBox()
+            class2_combo.addItem("")  
+            cndata2 = get_restaurant_class_query()
+            for idx, class_ in enumerate(cndata2):
+                class2_combo.addItem(f"{class_['name']}")
             layout.addWidget(class2_label)
-            layout.addWidget(class2_input)
+            layout.addWidget(class2_combo)
             class3_label = QLabel("餐廳類型3:")
-            class3_input = QLineEdit()
+            class3_combo = QComboBox()
+            class3_combo.addItem("")  
+            cndata3 = get_restaurant_class_query()
+            for idx, class_ in enumerate(cndata3):
+                class3_combo.addItem(f"{class_['name']}")
             layout.addWidget(class3_label)
-            layout.addWidget(class3_input)
+            layout.addWidget(class3_combo)
             web_label = QLabel("網址:")
             web_input = QLineEdit()
             layout.addWidget(web_label)
@@ -2007,20 +2367,33 @@ class Ui_Form(QMainWindow):
                 pic_describe2 = pic_describe2_input.text()
                 picture3 = picture3_input.text()
                 pic_describe3 = pic_describe3_input.text()
-                class1 = class1_input.text()
-                class2 = class2_input.text()
-                class3 = class3_input.text()
+                class1 = class1_combo.currentText()
+                cn_class1 = 254
+                for val in cndata1:
+                    if val['name'] == class1:
+                        cn_class1 = str(int(val['class']))
+                class2 = class2_combo.currentText()
+                cn_class2 = 254
+                for val in cndata2:
+                    if val['name'] == class2:
+                        cn_class2 = str(int(val['class']))
+                class3 = class3_combo.currentText()
+                cn_class3 = 254
+                for val in cndata3:
+                    if val['name'] == class3:
+                        cn_class3 = str(int(val['class']))
                 web = web_input.text()
                 Px = Px_input.text()
                 Py = Py_input.text()
                 parkinginfo = parkinginfo_input.text()
                 time = time_input.text()
                 try:
-                    insertRestaurantDataInToSql(id, cityid, site, zipcode, add, name, description, tex, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, class1, class2, class3, web, Px, Py, parkinginfo, time)
+                    insertRestaurantDataInToSql(id, cityid, site, zipcode, add, name, description, tex, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, cn_class1, cn_class2, cn_class3, web, Px, Py, parkinginfo, time)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Restaurant_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2131,17 +2504,29 @@ class Ui_Form(QMainWindow):
             layout.addWidget(Py_label)
             layout.addWidget(Py_input)
             class1_label = QLabel("景點類型1:")
-            class1_input = QLineEdit()
+            class1_combo = QComboBox()
+            class1_combo.addItem("")  
+            cndata1 = get_view_class_query()
+            for idx, class_ in enumerate(cndata1):
+                class1_combo.addItem(f"{class_['name']}")
             layout.addWidget(class1_label)
-            layout.addWidget(class1_input)
+            layout.addWidget(class1_combo)
             class2_label = QLabel("景點類型2:")
-            class2_input = QLineEdit()
+            class2_combo = QComboBox()
+            class2_combo.addItem("")  
+            cndata2 = get_view_class_query()
+            for idx, class_ in enumerate(cndata2):
+                class2_combo.addItem(f"{class_['name']}")
             layout.addWidget(class2_label)
-            layout.addWidget(class2_input)
+            layout.addWidget(class2_combo)
             class3_label = QLabel("景點類型3:")
-            class3_input = QLineEdit()
+            class3_combo = QComboBox()
+            class3_combo.addItem("")  
+            cndata3 = get_view_class_query()
+            for idx, class_ in enumerate(cndata3):
+                class3_combo.addItem(f"{class_['name']}")
             layout.addWidget(class3_label)
-            layout.addWidget(class3_input)
+            layout.addWidget(class3_combo)
             high_money_label = QLabel("最高價格:")
             high_money_input = QLineEdit()
             layout.addWidget(high_money_label)
@@ -2183,19 +2568,32 @@ class Ui_Form(QMainWindow):
                 pic_describe3 = pic_describe3_input.text()
                 Px = Px_input.text()
                 Py = Py_input.text()
-                class1 = class1_input.text()
-                class2 = class2_input.text()
-                class3 = class3_input.text()
+                class1 = class1_combo.currentText()
+                cn_class1 = 254
+                for val in cndata1:
+                    if val['name'] == class1:
+                        cn_class1 = str(int(val['class']))
+                class2 = class2_combo.currentText()
+                cn_class2 = 254
+                for val in cndata2:
+                    if val['name'] == class2:
+                        cn_class2 = str(int(val['class']))
+                class3 = class3_combo.currentText()
+                cn_class3 = 254
+                for val in cndata3:
+                    if val['name'] == class3:
+                        cn_class3 = str(int(val['class']))
                 high_money = high_money_input.text()
                 low_money = low_money_input.text()
                 money = money_input.text()
                 time = time_input.text()
                 try:
-                    insertViewDataInToSql(id, cityid, site, zipcode, add, name, web, toldescribe, tex, travellinginfo, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, Px, Py, class1, class2, class3, high_money, low_money, money, time)
+                    insertViewDataInToSql(id, cityid, site, zipcode, add, name, web, toldescribe, tex, travellinginfo, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, Px, Py, cn_class1, cn_class2, cn_class3, high_money, low_money, money, time)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.View_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2294,17 +2692,29 @@ class Ui_Form(QMainWindow):
             layout.addWidget(pic_describe3_label)
             layout.addWidget(pic_describe3_input)
             class1_label = QLabel("類別1:")
-            class1_input = QLineEdit()
+            class1_combo = QComboBox()
+            class1_combo.addItem("")  
+            cndata1 = get_activity_class_query()
+            for idx, class_ in enumerate(cndata1):
+                class1_combo.addItem(f"{class_['name']}")
             layout.addWidget(class1_label)
-            layout.addWidget(class1_input)
+            layout.addWidget(class1_combo)
             class2_label = QLabel("類別2:")
-            class2_input = QLineEdit()
+            class2_combo = QComboBox()
+            class2_combo.addItem("")  
+            cndata2 = get_activity_class_query()
+            for idx, class_ in enumerate(cndata2):
+                class2_combo.addItem(f"{class_['name']}")
             layout.addWidget(class2_label)
-            layout.addWidget(class2_input)
+            layout.addWidget(class2_combo)
             class3_label = QLabel("類別3:")
-            class3_input = QLineEdit()
+            class3_combo = QComboBox()
+            class3_combo.addItem("")  
+            cndata3 = get_activity_class_query()
+            for idx, class_ in enumerate(cndata3):
+                class3_combo.addItem(f"{class_['name']}")
             layout.addWidget(class3_label)
-            layout.addWidget(class3_input)
+            layout.addWidget(class3_combo)
             charge_label = QLabel("收費:")
             charge_input = QLineEdit()
             layout.addWidget(charge_label)
@@ -2355,9 +2765,21 @@ class Ui_Form(QMainWindow):
                 pic_describe2 = pic_describe2_input.text()
                 picture3 = picture3_input.text()
                 pic_describe3 = pic_describe3_input.text()
-                class1 = class1_input.text()
-                class2 = class2_input.text()
-                class3 = class3_input.text()
+                class1 = class1_combo.currentText()
+                cn_class1 = 254
+                for val in cndata1:
+                    if val['name'] == class1:
+                        cn_class1 = str(int(val['class']))
+                class2 = class2_combo.currentText()
+                cn_class2 = 254
+                for val in cndata2:
+                    if val['name'] == class2:
+                        cn_class2 = str(int(val['class']))
+                class3 = class3_combo.currentText()
+                cn_class3 = 254
+                for val in cndata3:
+                    if val['name'] == class3:
+                        cn_class3 = str(int(val['class']))
                 charge = charge_input.text()
                 Px = Px_input.text()
                 Py = Py_input.text()
@@ -2366,11 +2788,12 @@ class Ui_Form(QMainWindow):
                 participation = participation_input.text()
                 travellinginfo = travellinginfo_input.text()
                 try:
-                    insertActivityDataInToSql(id, cityid, site, add, name, web, description, tex, org, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3,class1, class2, class3, charge, Px, Py, start_time, end_time, participation, travellinginfo)
+                    insertActivityDataInToSql(id, cityid, site, add, name, web, description, tex, org, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, cn_class1, cn_class2, cn_class3, charge, Px, Py, start_time, end_time, participation, travellinginfo)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Activity_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2410,6 +2833,7 @@ class Ui_Form(QMainWindow):
             DayId_label = QLabel("Day_ID:")
             DayId_combo = QComboBox()
             DayId_combo.addItem("")
+            Travel_Id_combo.activated.connect(update_tripstartId_combo) 
             DayId_combo.activated.connect(update_tripstartId_combo) 
             if get_trip_TravelId_query():
                 update_dayid_combo()
@@ -2419,7 +2843,7 @@ class Ui_Form(QMainWindow):
             tripStartId_combo = QComboBox()
             tripStartId_combo.addItem("")
             if get_DayId_query(Travel_Id_combo):
-                    update_tripstartId_combo()
+                update_tripstartId_combo()
             layout.addWidget(tripStartId_label)
             layout.addWidget(tripStartId_combo)
             routeId_label = QLabel("Route_ID:")
@@ -2442,9 +2866,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertRouteDataInToSql(travelId, DayId, tripStartId, routeId, routeName)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Route_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2518,9 +2943,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertTripDataInToSql(TravelId, DayId, ViewId, Type, TripId, Id, date, time, weather)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Trip_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2584,9 +3010,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertRecordTripDataInToSql(userId, TravelId, DayId, isLike, isStore)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.User_Record_Trip_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2627,9 +3054,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertTravelDataInToSql(travelId, TravelName, userId)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.Travel_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2678,9 +3106,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertRecordTravelDataInToSql(userId, TravelId, isLike, isStore)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
-                    show_success_message(success_msg) 
+                    show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.User_Record_Travel_Button)
                 except Exception as e:
                     if "1062" in str(e) and "Duplicate entry" in str(e):
@@ -2751,9 +3180,10 @@ class Ui_Form(QMainWindow):
                 try:
                     insertRecordViewDataInToSql(userId, Type, Id,  isLike, isStore)
                     print("success")
-                    success_msg= f"插入資料成功，請刷新表格查看結果"
+                    success_msg= f"插入資料成功!"
                     dialog.accept()
                     show_success_message(success_msg)
+                    self.refresh_table(table_name)
                     self.set_tableButtonSelected(self.User_Record_View_Button)
                 except Exception as e:
                     print("Error inserting data:", e)
@@ -2783,247 +3213,7 @@ class Ui_Form(QMainWindow):
             button_layout.addStretch(1)
             layout.addLayout(button_layout)
             dialog.setLayout(layout)
-            dialog.exec_()
-    def refresh_button_clicked(self, button):
-        self.set_tableButtonSelected
-        self.selectedButton = button        
-        table_name = self.selected_table
-        if table_name == "manager":
-            query = "SELECT * FROM `manager`"
-            self.manager_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.manager_data), len(self.manager_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.manager_data[0].keys())
-            for row_num, row_data in enumerate(self.manager_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            print(self.model)
-            self.set_tableButtonSelected(self.Manager_Button)       
-        elif table_name == "user":
-            query = "SELECT * FROM `user`"
-            self.user_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.user_data), len(self.user_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.user_data[0].keys())
-            for row_num, row_data in enumerate(self.user_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.User_Button)
-            self.tableView.clearSelection()
-            self.row = None
-        elif table_name == "city":
-            query = "SELECT * FROM `city`"
-            self.city_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.city_data), len(self.city_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.city_data[0].keys())
-            for row_num, row_data in enumerate(self.city_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.City_Button)
-        elif table_name == "site":
-            query = "SELECT * FROM `site`"
-            self.site_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.site_data), len(self.site_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.site_data[0].keys())
-            for row_num, row_data in enumerate(self.site_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Site_Button)
-        elif table_name == "weather_36hours":
-            query = "SELECT * FROM `weather_36hours`"
-            self.weather_36hours_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.weather_36hours_data), len(self.weather_36hours_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.weather_36hours_data[0].keys())
-            for row_num, row_data in enumerate(self.weather_36hours_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Weather_36hours_Button)
-        elif table_name == "weather_2days":
-            query = "SELECT * FROM `weather_2days`"
-            self.weather_2days_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.weather_2days_data), len(self.weather_2days_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.weather_2days_data[0].keys())
-            for row_num, row_data in enumerate(self.weather_2days_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Weather_2days_Button)
-        elif table_name == "weather_week":
-            query = "SELECT * FROM `weather_week`"
-            self.weather_week_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.weather_week_data), len(self.weather_week_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.weather_week_data[0].keys())
-            for row_num, row_data in enumerate(self.weather_week_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Weather_week_Button)
-        elif table_name == "type":
-            query = "SELECT * FROM `type`"
-            self.type_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.type_data), len(self.type_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.type_data[0].keys())
-            for row_num, row_data in enumerate(self.type_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Type_Button)
-        elif table_name == "ids":
-            query = "SELECT * FROM `ids`"
-            self.ids_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.ids_data), len(self.ids_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.ids_data[0].keys())
-            for row_num, row_data in enumerate(self.ids_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Ids_Button)
-        elif table_name == "hotel":
-            query = "SELECT * FROM `hotel`"
-            self.hotel_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.hotel_data), len(self.hotel_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.hotel_data[0].keys())
-            for row_num, row_data in enumerate(self.hotel_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Hotel_Button)
-        elif table_name == "restaurant":
-            query = "SELECT * FROM `restaurant`"
-            self.restaurant_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.restaurant_data), len(self.restaurant_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.restaurant_data[0].keys())
-            for row_num, row_data in enumerate(self.restaurant_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Restaurant_Button)
-        elif table_name == "view":
-            query = "SELECT * FROM `view`"
-            self.view_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.view_data), len(self.view_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.view_data[0].keys())
-            for row_num, row_data in enumerate(self.view_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.View_Button)
-        elif table_name == "activity":
-            query = "SELECT * FROM `activity`"
-            self.activity_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.activity_data), len(self.activity_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.activity_data[0].keys())
-            for row_num, row_data in enumerate(self.activity_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Activity_Button)
-        elif table_name == "route":
-            query = "SELECT * FROM `route`"
-            self.route_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.route_data), len(self.route_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.route_data[0].keys())
-            for row_num, row_data in enumerate(self.route_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Route_Button)
-        elif table_name == "trip":
-            query = "SELECT * FROM `trip`"
-            self.trip_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.trip_data), len(self.trip_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.trip_data[0].keys())
-            for row_num, row_data in enumerate(self.trip_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Trip_Button)
-        elif table_name == "user_record_trip":
-            query = "SELECT * FROM `user_record_trip`"
-            self.user_record_trip_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.user_record_trip_data), len(self.user_record_trip_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.user_record_trip_data[0].keys())
-            for row_num, row_data in enumerate(self.user_record_trip_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.User_Record_Trip_Button)
-        elif table_name == "travel":
-            query = "SELECT * FROM `travel`"
-            self.travel_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.travel_data), len(self.travel_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.travel_data[0].keys())
-            for row_num, row_data in enumerate(self.travel_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.Travel_Button)
-        elif table_name == "user_record_travel":
-            query = "SELECT * FROM `user_record_travel`"
-            self.user_record_travel_data = self.db.execute_query(query)
-            self.model = QtGui.QStandardItemModel(len(self.user_record_travel_data), len(self.user_record_travel_data[0].keys()))
-            self.model.setHorizontalHeaderLabels(self.user_record_travel_data[0].keys())
-            for row_num, row_data in enumerate(self.user_record_travel_data):
-                for col_num, col_data in enumerate(row_data.values()):
-                    item = QtGui.QStandardItem(str(col_data))
-                    self.model.setItem(row_num, col_num, item)
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.User_Record_Travel_Button)
-        elif table_name == "user_record_view":
-            query = "SELECT * FROM `user_record_view`"
-            self.user_record_view_data = self.db.execute_query(query)
-            if self.user_record_view_data:
-                self.model = QtGui.QStandardItemModel(len(self.user_record_view_data), len(self.user_record_view_data[0].keys()))
-                self.model.setHorizontalHeaderLabels(self.user_record_view_data[0].keys())
-                for row_num, row_data in enumerate(self.user_record_view_data):
-                    for col_num, col_data in enumerate(row_data.values()):
-                        item = QtGui.QStandardItem(str(col_data))
-                        self.model.setItem(row_num, col_num, item)
-            else:
-                self.model.clear()
-            self.tableView.setModel(self.model)
-            self.set_tableButtonSelected(self.User_Record_View_Button)
-        else:
-            dialog = QDialog()
-            dialog.setWindowTitle("錯誤")
-            dialog.setModal(True)
-            dialog.adjustSize()
-            layout = QVBoxLayout()
-            text_label = QLabel("請先選擇表格")
-            text_label.setAlignment(Qt.AlignCenter)
-            layout.addWidget(text_label)
-            layout.addStretch(1)
-            ok_button = QPushButton("確定")
-            ok_button.clicked.connect(dialog.accept)
-            ok_button.setFixedWidth(100)
-            ok_button.setFixedHeight(30)
-            button_layout = QHBoxLayout()
-            button_layout.addStretch(1)
-            button_layout.addWidget(ok_button)
-            button_layout.addStretch(1)
-            layout.addLayout(button_layout)
-            dialog.setLayout(layout)
-            dialog.exec_()       
+            dialog.exec_() 
     def update_button_clicked(self, button):
         index = self.tableView.currentIndex()
         self.row = self.on_cell_clicked(index)
@@ -3076,6 +3266,22 @@ class Ui_Form(QMainWindow):
                 userId_query = "SELECT `email` FROM `user`"
                 userId_data = self.db.execute_query(userId_query)
                 return userId_data
+        def get_hotel_class_query():
+            hotel_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'hotel' "
+            hotel_class_data = self.db.execute_query(hotel_class_query)
+            return hotel_class_data
+        def get_restaurant_class_query():
+            restaurant_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'restaurant' "
+            restaurant_class_data = self.db.execute_query(restaurant_class_query)
+            return restaurant_class_data
+        def get_view_class_query():
+            view_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'view' "
+            view_class_data = self.db.execute_query(view_class_query)
+            return view_class_data
+        def get_activity_class_query():
+            activity_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'activity' "
+            activity_class_data = self.db.execute_query(activity_class_query)
+            return activity_class_data
         def get_travelId_query():
             travelId_query = "SELECT `TravelId` FROM `travel`"
             travelId_data = self.db.execute_query(travelId_query)
@@ -3094,7 +3300,7 @@ class Ui_Form(QMainWindow):
             return travelId_data
         def get_tripStartId_query(TravelId, DayId):
             type_query = "SELECT `ViewId` FROM `trip` WHERE `TravelId` = %s AND `DayId` = %s"
-            self.type_data = self.db.execute_query(type_query, (TravelId, DayId))
+            self.type_data = self.db.execute_query(type_query, (TravelId, DayId,))
             return self.type_data
         def get_ids_type_query():
             type_query = "SELECT DISTINCT `Type` FROM `ids`"
@@ -3151,9 +3357,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateManagerDataInToSql(username, userpassword, user_name)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Manager_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -3216,15 +3423,16 @@ class Ui_Form(QMainWindow):
                             QMessageBox.warning(dialog, "Error", "電子郵件必須包含@")
                             return
                         elif not (6 <= len(userpassword) <= 18):
-                            QMessageBox.warning(dialog, "Error", "密碼長度需界在6-18碼")
+                            QMessageBox.warning(dialog, "Error", "密碼長度需介在6-18碼")
                             return
                         else:
                             try:
                                 updateUserDataInToSql(email, username, userpassword, user_email)
                                 print("Success")
-                                success_msg = "資料更新成功，請刷新表格查看結果"
+                                success_msg = "資料更新成功!"
                                 dialog.accept()
                                 show_success_message(success_msg)
+                                self.refresh_table(table_name)
                                 self.set_tableButtonSelected(self.User_Button)
                             except Exception as e:
                                 print("Error updating data:", e)
@@ -3275,9 +3483,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateCityDataInToSql(cityid, city_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.City_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -3323,6 +3532,9 @@ class Ui_Form(QMainWindow):
                         city_combo.addItem(f"{city['city_id']}")
                     layout.addWidget(city_label)
                     layout.addWidget(city_combo)
+                    d_city = city_combo.findText(city_id)
+                    if d_city != -1:
+                        city_combo.setCurrentIndex(d_city)
                     site_id_label = QLabel("Site_id:")
                     site_id_input = QLineEdit(site_id)
                     layout.addWidget(site_id_label)
@@ -3336,9 +3548,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateSiteDataInToSql(cityid, siteid, city_id, site_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Site_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -3496,11 +3709,11 @@ class Ui_Form(QMainWindow):
                     content_widget = QWidget()
                     layout = QVBoxLayout(content_widget)
                     u_id = hotel_info['ID']
-                    city = hotel_info['城市']
+                    city_id = hotel_info['城市']
                     site = hotel_info['鄉鎮']
                     add = hotel_info['地址']
                     name = hotel_info['名字']
-                    hotel = hotel_info['旅館類別']
+                    hotel_class = hotel_info['旅館類別']
                     toldescribe = hotel_info['描述']
                     web = hotel_info['網址']
                     tex = hotel_info['電話']
@@ -3530,6 +3743,11 @@ class Ui_Form(QMainWindow):
                         city_combo.addItem(f"{city['city_id']}")
                     layout.addWidget(city_label)
                     layout.addWidget(city_combo)
+                    d_city = city_combo.findText(city_id)
+                    if d_city != -1:
+                        for idx in range(len(self.city_data)):
+                            if idx == (d_city):
+                                city_combo.setCurrentIndex(idx)
                     site_label = QLabel("鄉鎮:")
                     site_combo = QComboBox()
                     site_combo.addItem("")                   
@@ -3537,6 +3755,9 @@ class Ui_Form(QMainWindow):
                         update_site_combo()
                     layout.addWidget(site_label)
                     layout.addWidget(site_combo)
+                    self.d_site = site_combo.findText(site)
+                    if self.d_site != -1:
+                        site_combo.setCurrentIndex(self.d_site)
                     add_label = QLabel("地址:")
                     add_input = QLineEdit(add)
                     layout.addWidget(add_label)
@@ -3545,10 +3766,15 @@ class Ui_Form(QMainWindow):
                     name_input = QLineEdit(name)
                     layout.addWidget(name_label)
                     layout.addWidget(name_input)
-                    hotel_label = QLabel("旅館類別:")
-                    hotel_input = QLineEdit(hotel)
-                    layout.addWidget(hotel_label)
-                    layout.addWidget(hotel_input)
+                    hotel_class_label = QLabel("旅館類別:")
+                    hotel_class_combo = QComboBox()
+                    cndata = get_hotel_class_query()
+                    for idx, class_ in enumerate(cndata):
+                        hotel_class_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == hotel_class:
+                            hotel_class_combo.setCurrentIndex(idx)
+                    layout.addWidget(hotel_class_label)
+                    layout.addWidget(hotel_class_combo)
                     toldescribe_label = QLabel("描述:")
                     toldescribe_input = QLineEdit(toldescribe)
                     layout.addWidget(toldescribe_label)
@@ -3628,7 +3854,11 @@ class Ui_Form(QMainWindow):
                         site = site_combo.currentText()
                         add = add_input.text()
                         name = name_input.text()
-                        hotel = hotel_input.text()
+                        hotel_class = hotel_class_combo.currentText()
+                        cn_class = 9
+                        for val in cndata:
+                            if val['name'] == hotel_class:
+                                cn_class = str(int(val['class']))
                         toldescribe = toldescribe_input.text()
                         web = web_input.text()
                         tex = tex_input.text()
@@ -3647,11 +3877,12 @@ class Ui_Form(QMainWindow):
                         Px = Px_input.text()
                         Py = Py_input.text()
                         try:
-                            updateHotelDataInToSql(id, cityid, site, add, name, hotel, toldescribe, web, tex, serviceinfo, room, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, lowestprice, ceilingprice, people, Px, Py, u_id) #(更改的, 原本的)
+                            updateHotelDataInToSql(id, cityid, site, add, name, cn_class, toldescribe, web, tex, serviceinfo, room, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, lowestprice, ceilingprice, people, Px, Py, u_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Hotel_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -3699,7 +3930,7 @@ class Ui_Form(QMainWindow):
                     content_widget = QWidget()
                     layout = QVBoxLayout(content_widget)
                     u_id = restaurant_info['ID']
-                    city = restaurant_info['城市']
+                    city_id = restaurant_info['城市']
                     site = restaurant_info['鄉鎮']
                     zipcode = restaurant_info['郵遞區號']
                     add = restaurant_info['地址']
@@ -3732,6 +3963,11 @@ class Ui_Form(QMainWindow):
                         city_combo.addItem(f"{city['city_id']}")
                     layout.addWidget(city_label)
                     layout.addWidget(city_combo)
+                    d_city = city_combo.findText(city_id)
+                    if d_city != -1:
+                        for idx in range(len(self.city_data)):
+                            if idx == (d_city):
+                                city_combo.setCurrentIndex(idx)
                     site_label = QLabel("鄉鎮:")
                     site_combo = QComboBox()
                     site_combo.addItem("")                   
@@ -3740,6 +3976,9 @@ class Ui_Form(QMainWindow):
                         update_site_combo()
                     layout.addWidget(site_label)
                     layout.addWidget(site_combo)
+                    self.d_site = site_combo.findText(site)
+                    if self.d_site != -1:
+                        site_combo.setCurrentIndex(self.d_site)
                     zipcode_label = QLabel("郵遞區號:")
                     zipcode_input = QLineEdit(zipcode)
                     layout.addWidget(zipcode_label)
@@ -3785,17 +4024,32 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(pic_describe3_label)
                     layout.addWidget(pic_describe3_input)
                     class1_label = QLabel("餐廳類型1:")
-                    class1_input = QLineEdit(class1)
+                    class1_combo = QComboBox()
+                    cndata1 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        class1_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class1:
+                            class1_combo.setCurrentIndex(idx)
                     layout.addWidget(class1_label)
-                    layout.addWidget(class1_input)
+                    layout.addWidget(class1_combo)
                     class2_label = QLabel("餐廳類型2:")
-                    class2_input = QLineEdit(class2)
+                    class2_combo = QComboBox()
+                    cndata2 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        class2_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class2:
+                            class2_combo.setCurrentIndex(idx)
                     layout.addWidget(class2_label)
-                    layout.addWidget(class2_input)
+                    layout.addWidget(class2_combo)
                     class3_label = QLabel("餐廳類型3:")
-                    class3_input = QLineEdit(class3)
+                    class3_combo = QComboBox()
+                    cndata3 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        class3_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class3:
+                            class3_combo.setCurrentIndex(idx)
                     layout.addWidget(class3_label)
-                    layout.addWidget(class3_input)
+                    layout.addWidget(class3_combo)
                     web_label = QLabel("網址:")
                     web_input = QLineEdit(web)
                     layout.addWidget(web_label)
@@ -3836,20 +4090,33 @@ class Ui_Form(QMainWindow):
                         pic_describe2 = pic_describe2_input.text()
                         picture3 = picture3_input.text()
                         pic_describe3 = pic_describe3_input.text()
-                        class1 = class1_input.text()
-                        class2 = class2_input.text()
-                        class3 = class3_input.text()
-                        web = web_input.text()
-                        Px = Px_input.text()
-                        Py = Py_input.text()
-                        parkinginfo = parkinginfo_input.text()
-                        time = time_input.text()
+                        class1 = class1_combo.currentText()
+                        cn_class1 = 254
+                        for val in cndata1:
+                            if val['name'] == class1:
+                                cn_class1 = str(int(val['class']))
+                        class2 = class2_combo.currentText()
+                        cn_class2 = 254
+                        for val in cndata2:
+                            if val['name'] == class2:
+                                cn_class2 = str(int(val['class']))
+                        class3 = class3_combo.currentText()
+                        cn_class3 = 254
+                        for val in cndata3:
+                            if val['name'] == class3:
+                                cn_class3 = str(int(val['class']))
+                                web = web_input.text()
+                                Px = Px_input.text()
+                                Py = Py_input.text()
+                                parkinginfo = parkinginfo_input.text()
+                                time = time_input.text()
                         try:
-                            updateRestaurantDataInToSql(id, cityid, site, zipcode, add, name, description, tex, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, class1, class2, class3, web, Px, Py, parkinginfo, time, u_id) #(更改的, 原本的)
+                            updateRestaurantDataInToSql(id, cityid, site, zipcode, add, name, description, tex, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, cn_class1, cn_class2, cn_class3, web, Px, Py, parkinginfo, time, u_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Restaurant_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -3897,7 +4164,7 @@ class Ui_Form(QMainWindow):
                     content_widget = QWidget()
                     layout = QVBoxLayout(content_widget)
                     u_id = view_info['ID']
-                    city = view_info['城市']
+                    city_id = view_info['城市']
                     site = view_info['鄉鎮']
                     zipcode = view_info['郵遞區號']
                     add = view_info['地址']
@@ -3934,6 +4201,11 @@ class Ui_Form(QMainWindow):
                         city_combo.addItem(f"{city['city_id']}")
                     layout.addWidget(city_label)
                     layout.addWidget(city_combo)
+                    d_city = city_combo.findText(city_id)
+                    if d_city != -1:
+                        for idx in range(len(self.city_data)):
+                            if idx == (d_city):
+                                city_combo.setCurrentIndex(idx)
                     site_label = QLabel("鄉鎮:")
                     site_combo = QComboBox() 
                     site_combo.addItem("")                  
@@ -3942,6 +4214,9 @@ class Ui_Form(QMainWindow):
                         update_site_combo()
                     layout.addWidget(site_label)
                     layout.addWidget(site_combo)
+                    self.d_site = site_combo.findText(site)
+                    if self.d_site != -1:
+                        site_combo.setCurrentIndex(self.d_site)
                     zipcode_label = QLabel("郵遞區號:")
                     zipcode_input = QLineEdit(zipcode)
                     layout.addWidget(zipcode_label)
@@ -4007,17 +4282,32 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(Py_label)
                     layout.addWidget(Py_input)
                     class1_label = QLabel("景點類型1:")
-                    class1_input = QLineEdit(class1)
+                    class1_combo = QComboBox()
+                    cndata1 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        class1_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class1:
+                            class1_combo.setCurrentIndex(idx)
                     layout.addWidget(class1_label)
-                    layout.addWidget(class1_input)
+                    layout.addWidget(class1_combo)
                     class2_label = QLabel("景點類型2:")
-                    class2_input = QLineEdit(class2)
+                    class2_combo = QComboBox()
+                    cndata2 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        class2_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class2:
+                            class2_combo.setCurrentIndex(idx)
                     layout.addWidget(class2_label)
-                    layout.addWidget(class2_input)
+                    layout.addWidget(class2_combo)
                     class3_label = QLabel("景點類型3:")
-                    class3_input = QLineEdit(class3)
+                    class3_combo = QComboBox()
+                    cndata3 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        class3_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class3:
+                            class3_combo.setCurrentIndex(idx)
                     layout.addWidget(class3_label)
-                    layout.addWidget(class3_input)
+                    layout.addWidget(class3_combo)
                     high_money_label = QLabel("最高價格:")
                     high_money_input = QLineEdit(high_money)
                     layout.addWidget(high_money_label)
@@ -4059,19 +4349,37 @@ class Ui_Form(QMainWindow):
                         pic_describe3 = pic_describe3_input.text()
                         Px = Px_input.text()
                         Py = Py_input.text()
-                        class1 = class1_input.text()
-                        class2 = class2_input.text()
-                        class3 = class3_input.text()
+                        class1 = class1_combo.currentText()
+                        cn_class1 = 254
+                        for val in cndata1:
+                            if val['name'] == class1:
+                                cn_class1 = str(int(val['class']))
+                        class2 = class2_combo.currentText()
+                        cn_class2 = 254
+                        for val in cndata2:
+                            if val['name'] == class2:
+                                cn_class2 = str(int(val['class']))
+                        class3 = class3_combo.currentText()
+                        cn_class3 = 254
+                        for val in cndata3:
+                            if val['name'] == class3:
+                                cn_class3 = str(int(val['class']))
+                                web = web_input.text()
+                                Px = Px_input.text()
+                                Py = Py_input.text()
+                                parkinginfo = parkinginfo_input.text()
+                                time = time_input.text()
                         high_money = high_money_input.text()
                         low_money = low_money_input.text()
                         money = money_input.text()
                         time = time_input.text()
                         try:
-                            updateViewDataInToSql(id, cityid, site, zipcode, add, name, web, toldescribe, tex, travellinginfo, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, Px, Py, class1, class2, class3, high_money, low_money, money, time, u_id) #(更改的, 原本的)
+                            updateViewDataInToSql(id, cityid, site, zipcode, add, name, web, toldescribe, tex, travellinginfo, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, Px, Py, cn_class1, cn_class2, cn_class3, high_money, low_money, money, time, u_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.View_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4119,7 +4427,7 @@ class Ui_Form(QMainWindow):
                     content_widget = QWidget()
                     layout = QVBoxLayout(content_widget)
                     u_id = activity_info['ID']
-                    city = activity_info['城市']
+                    city_id = activity_info['城市']
                     site = activity_info['鄉鎮']
                     add = activity_info['地址']
                     name = activity_info['名字']
@@ -4156,6 +4464,11 @@ class Ui_Form(QMainWindow):
                         city_combo.addItem(f"{city['city_id']}")
                     layout.addWidget(city_label)
                     layout.addWidget(city_combo)
+                    d_city = city_combo.findText(city_id)
+                    if d_city != -1:
+                        for idx in range(len(self.city_data)):
+                            if idx == (d_city):
+                                city_combo.setCurrentIndex(idx)
                     site_label = QLabel("鄉鎮:")
                     site_combo = QComboBox()
                     site_combo.addItem("")                
@@ -4164,6 +4477,9 @@ class Ui_Form(QMainWindow):
                         update_site_combo()
                     layout.addWidget(site_label)
                     layout.addWidget(site_combo)
+                    self.d_site = site_combo.findText(site)
+                    if self.d_site != -1:
+                        site_combo.setCurrentIndex(self.d_site)
                     add_label = QLabel("地址:")
                     add_input = QLineEdit(add)
                     layout.addWidget(add_label)
@@ -4217,17 +4533,32 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(pic_describe3_label)
                     layout.addWidget(pic_describe3_input)
                     class1_label = QLabel("類別1:")
-                    class1_input = QLineEdit(class1)
+                    class1_combo = QComboBox()
+                    cndata1 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        class1_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class1:
+                            class1_combo.setCurrentIndex(idx)
                     layout.addWidget(class1_label)
-                    layout.addWidget(class1_input)
+                    layout.addWidget(class1_combo)
                     class2_label = QLabel("類別2:")
-                    class2_input = QLineEdit(class2)
+                    class2_combo = QComboBox()
+                    cndata2 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        class2_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class2:
+                            class2_combo.setCurrentIndex(idx)
                     layout.addWidget(class2_label)
-                    layout.addWidget(class2_input)
+                    layout.addWidget(class2_combo)
                     class3_label = QLabel("類別3:")
-                    class3_input = QLineEdit(class3)
+                    class3_combo = QComboBox()
+                    cndata3 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        class3_combo.addItem(f"{class_['name']}")
+                        if class_['class'] == class3:
+                            class3_combo.setCurrentIndex(idx)
                     layout.addWidget(class3_label)
-                    layout.addWidget(class3_input)
+                    layout.addWidget(class3_combo)
                     charge_label = QLabel("收費:")
                     charge_input = QLineEdit(charge)
                     layout.addWidget(charge_label)
@@ -4278,9 +4609,25 @@ class Ui_Form(QMainWindow):
                         pic_describe2 = pic_describe2_input.text()
                         picture3 = picture3_input.text()
                         pic_describe3 = pic_describe3_input.text()
-                        class1 = class1_input.text()
-                        class2 = class2_input.text()
-                        class3 = class3_input.text()
+                        class1 = class1_combo.currentText()
+                        cn_class1 = 254
+                        for val in cndata1:
+                            if val['name'] == class1:
+                                cn_class1 = str(int(val['class']))
+                        class2 = class2_combo.currentText()
+                        cn_class2 = 254
+                        for val in cndata2:
+                            if val['name'] == class2:
+                                cn_class2 = str(int(val['class']))
+                        class3 = class3_combo.currentText()
+                        cn_class3 = 254
+                        for val in cndata3:
+                            if val['name'] == class3:
+                                cn_class3 = str(int(val['class']))
+                                web = web_input.text()
+                                Px = Px_input.text()
+                                Py = Py_input.text()
+                                parkinginfo = parkinginfo_input.text()
                         charge = charge_input.text()
                         Px = Px_input.text()
                         Py = Py_input.text()
@@ -4289,11 +4636,12 @@ class Ui_Form(QMainWindow):
                         participation = participation_input.text()
                         travellinginfo = travellinginfo_input.text()
                         try:
-                            updateActivityDataInToSql(id, cityid, site, add, name, web, description, tex, org, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3,class1, class2, class3, charge, Px, Py, start_time, end_time, participation, travellinginfo, u_id) #(更改的, 原本的)
+                            updateActivityDataInToSql(id, cityid, site, add, name, web, description, tex, org, parkinginfo, picture1, pic_describe1, picture2, pic_describe2, picture3, pic_describe3, cn_class1, cn_class2, cn_class3, charge, Px, Py, start_time, end_time, participation, travellinginfo, u_id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Activity_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4356,14 +4704,21 @@ class Ui_Form(QMainWindow):
                         Travel_Id_combo.addItem(f"{TravelId['TravelId']}")
                     layout.addWidget(Travel_Id_label)
                     layout.addWidget(Travel_Id_combo)
+                    d_Travel_Id = Travel_Id_combo.findText(travel_Id)
+                    if d_Travel_Id != -1:
+                        Travel_Id_combo.setCurrentIndex(d_Travel_Id)
                     DayId_label = QLabel("Day_ID:")
                     DayId_combo = QComboBox()
                     DayId_combo.addItem("")
+                    Travel_Id_combo.activated.connect(update_tripstartId_combo) 
                     DayId_combo.activated.connect(update_tripstartId_combo) 
                     if get_trip_TravelId_query():
                         update_dayid_combo()
                     layout.addWidget(DayId_label)
                     layout.addWidget(DayId_combo)
+                    d_Day_Id = DayId_combo.findText(Day_Id)
+                    if d_Day_Id != -1:
+                        DayId_combo.setCurrentIndex(d_Day_Id)
                     tripStartId_label = QLabel("Trip_Start_ID:")
                     tripStartId_combo = QComboBox()
                     tripStartId_combo.addItem("")
@@ -4371,6 +4726,9 @@ class Ui_Form(QMainWindow):
                             update_tripstartId_combo()
                     layout.addWidget(tripStartId_label)
                     layout.addWidget(tripStartId_combo)
+                    d_tripStart_Id = tripStartId_combo.findText(tripStart_Id)
+                    if d_tripStart_Id != -1:
+                        tripStartId_combo.setCurrentIndex(d_tripStart_Id)
                     route_Id_label = QLabel("Route_ID:")
                     route_Id_input = QLineEdit(route_Id)
                     layout.addWidget(route_Id_label)
@@ -4391,9 +4749,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateRouteDataInToSql(travelId, DayId, tripStartId, routeId, routeName, travel_Id, Day_Id, route_Id, tripStart_Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Route_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4433,7 +4792,7 @@ class Ui_Form(QMainWindow):
                     Travel_Id = trip_info['TravelId']
                     Day_Id = trip_info['DayId']
                     View_Id = trip_info['ViewId']
-                    Type = trip_info['Type']
+                    Type_Id = trip_info['Type']
                     Trip_Id = trip_info['TripId']
                     Id = trip_info['Id']
                     date = trip_info['date']
@@ -4446,6 +4805,9 @@ class Ui_Form(QMainWindow):
                         Travel_Id_combo.addItem(f"{TravelId['TravelId']}")
                     layout.addWidget(Travel_Id_label)
                     layout.addWidget(Travel_Id_combo)
+                    d_Travel_Id = Travel_Id_combo.findText(Travel_Id)
+                    if d_Travel_Id != -1:
+                        Travel_Id_combo.setCurrentIndex(d_Travel_Id)
                     Day_Id_label = QLabel("Day_ID:")
                     Day_Id_input = QLineEdit(Day_Id)
                     layout.addWidget(Day_Id_label)
@@ -4461,6 +4823,9 @@ class Ui_Form(QMainWindow):
                         Type_Id_combo.addItem(f"{Type['Type']}")
                     layout.addWidget(Type_label)
                     layout.addWidget(Type_Id_combo)
+                    d_Type = Type_Id_combo.findText(Type_Id)
+                    if d_Type != -1:
+                        Type_Id_combo.setCurrentIndex(d_Type)
                     Trip_Id_label = QLabel("Trip_ID:")
                     Trip_Id_input = QLineEdit(Trip_Id)
                     layout.addWidget(Trip_Id_label)
@@ -4497,9 +4862,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateTripDataInToSql(TravelId, DayId, ViewId, Type, TripId, Id, date, time, weather, Travel_Id, Day_Id, View_Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Trip_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4554,6 +4920,9 @@ class Ui_Form(QMainWindow):
                         user_Id_combo.addItem(f"{userId['email']}")
                     layout.addWidget(user_Id_label)
                     layout.addWidget(user_Id_combo)
+                    d_user_Id = user_Id_combo.findText(user_Id)
+                    if d_user_Id != -1:
+                        user_Id_combo.setCurrentIndex(d_user_Id)
                     Travel_Id_label = QLabel("Travel_ID:")
                     Travel_Id_combo = QComboBox()
                     Travel_Id_combo.addItem("")
@@ -4562,6 +4931,9 @@ class Ui_Form(QMainWindow):
                         Travel_Id_combo.addItem(f"{TravelId['TravelId']}")
                     layout.addWidget(Travel_Id_label)
                     layout.addWidget(Travel_Id_combo)
+                    d_Travel_Id = Travel_Id_combo.findText(Travel_Id)
+                    if d_Travel_Id != -1:
+                        Travel_Id_combo.setCurrentIndex(d_Travel_Id)
                     DayId_label = QLabel("Day_ID:")
                     DayId_combo = QComboBox()
                     DayId_combo.addItem("")
@@ -4569,6 +4941,9 @@ class Ui_Form(QMainWindow):
                         update_dayid_combo()
                     layout.addWidget(DayId_label)
                     layout.addWidget(DayId_combo)
+                    d_Day_Id = DayId_combo.findText(Day_Id)
+                    if d_Day_Id != -1:
+                        DayId_combo.setCurrentIndex(d_Day_Id)
                     isLike_label = QLabel("is_Like:")
                     isLike_input = QLineEdit(isLike)
                     layout.addWidget(isLike_label)
@@ -4589,9 +4964,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateRecordTripDataInToSql(userId, TravelId, DayId, isLike, isStore, user_Id, Travel_Id, Day_Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_Trip_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4646,6 +5022,9 @@ class Ui_Form(QMainWindow):
                         user_Id_combo.addItem(f"{userId['email']}")
                     layout.addWidget(user_Id_label)
                     layout.addWidget(user_Id_combo)
+                    d_user_Id = user_Id_combo.findText(user_Id)
+                    if d_user_Id != -1:
+                        user_Id_combo.setCurrentIndex(d_user_Id)
                     update_button = QPushButton("Update")
                     layout.addWidget(update_button, alignment=Qt.AlignCenter)
                     dialog.setLayout(layout)
@@ -4656,9 +5035,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateTravelDataInToSql(travelId, TravelName, userId, Travel_Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Travel_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4706,6 +5086,9 @@ class Ui_Form(QMainWindow):
                         user_Id_combo.addItem(f"{userId['email']}")
                     layout.addWidget(user_Id_label)
                     layout.addWidget(user_Id_combo)
+                    d_user_Id = user_Id_combo.findText(user_Id)
+                    if d_user_Id != -1:
+                        user_Id_combo.setCurrentIndex(d_user_Id)
                     Travel_Id_label = QLabel("Travel_ID:")
                     Travel_Id_combo = QComboBox()
                     Travel_Id_combo.addItem("")
@@ -4713,6 +5096,9 @@ class Ui_Form(QMainWindow):
                         Travel_Id_combo.addItem(f"{TravelId['TravelId']}")
                     layout.addWidget(Travel_Id_label)
                     layout.addWidget(Travel_Id_combo)
+                    d_Travel_Id = Travel_Id_combo.findText(Travel_Id)
+                    if d_Travel_Id != -1:
+                        Travel_Id_combo.setCurrentIndex(d_Travel_Id)
                     is_Like_label = QLabel("is_Like:")
                     is_Like_input = QLineEdit(is_Like)
                     layout.addWidget(is_Like_label)
@@ -4732,9 +5118,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateRecordTravelDataInToSql(userId, TravelId, isLike, isStore, user_Id, Travel_Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_Travel_Button)
                         except Exception as e:
                             if "1062" in str(e) and "Duplicate entry" in str(e):
@@ -4796,6 +5183,9 @@ class Ui_Form(QMainWindow):
                         user_Id_combo.addItem(f"{userId['email']}")
                     layout.addWidget(user_Id_label)
                     layout.addWidget(user_Id_combo)
+                    d_user_Id = user_Id_combo.findText(user_Id)
+                    if d_user_Id != -1:
+                        user_Id_combo.setCurrentIndex(d_user_Id)
                     Type_label = QLabel("Type:")
                     Type_Id_combo = QComboBox()
                     Type_Id_combo.addItem("")
@@ -4803,6 +5193,9 @@ class Ui_Form(QMainWindow):
                         Type_Id_combo.addItem(f"{Type['Type']}")
                     layout.addWidget(Type_label)
                     layout.addWidget(Type_Id_combo)
+                    d_Type_Id = Type_Id_combo.findText(Type_Id)
+                    if d_Type_Id != -1:
+                        Type_Id_combo.setCurrentIndex(d_Type_Id)
                     ID_label = QLabel("ID:")
                     ID_combo = QComboBox()
                     ID_combo.addItem("")
@@ -4811,6 +5204,9 @@ class Ui_Form(QMainWindow):
                         update_id_combo()
                     layout.addWidget(ID_label)
                     layout.addWidget(ID_combo)
+                    d_Id = ID_combo.findText(Id)
+                    if d_Id != -1:
+                        ID_combo.setCurrentIndex(d_Id)
                     is_Like_label = QLabel("is_Like:")
                     is_Like_input = QLineEdit(is_Like)
                     layout.addWidget(is_Like_label)
@@ -4831,9 +5227,10 @@ class Ui_Form(QMainWindow):
                         try:
                             updateRecordViewDataInToSql(userId, type, id, isLike, isStore, user_Id, Type_Id, Id) #(更改的, 原本的)
                             print("success")
-                            success_msg= f"資料更新成功，請刷新表格查看結果"
+                            success_msg= f"資料更新成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_View_Button)
                         except Exception as e:
                             print("Error update data:", e)
@@ -4905,6 +5302,22 @@ class Ui_Form(QMainWindow):
                 msg.setLayout(layout)
                 msg.adjustSize()       
                 msg.exec_()
+        def get_hotel_class_query():
+            hotel_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'hotel' "
+            hotel_class_data = self.db.execute_query(hotel_class_query)
+            return hotel_class_data
+        def get_restaurant_class_query():
+            restaurant_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'restaurant' "
+            restaurant_class_data = self.db.execute_query(restaurant_class_query)
+            return restaurant_class_data
+        def get_view_class_query():
+            view_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'view' "
+            view_class_data = self.db.execute_query(view_class_query)
+            return view_class_data
+        def get_activity_class_query():
+            activity_class_query = "SELECT `class`, `name` FROM `type_classes` WHERE `type` = 'activity' "
+            activity_class_data = self.db.execute_query(activity_class_query)
+            return activity_class_data
         if table_name == "manager":
             if self.row == -1:                
                 dialog = QDialog()
@@ -4956,9 +5369,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteManagerDataInToSql(username)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
-                            show_success_message(success_msg) 
+                            show_success_message(success_msg)
+                            self.refresh_table(table_name) 
                             self.set_tableButtonSelected(self.Manager_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5025,9 +5439,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteUserDataInToSql(user_email)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg) 
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5081,9 +5496,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteCityDataInToSql(city_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.City_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5142,9 +5558,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteSiteDataInToSql(site_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Site_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5347,6 +5764,10 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(name_label)
                     layout.addWidget(name_display)
                     hotel_label = QLabel("旅館類別:")
+                    cndata1 = get_hotel_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        if class_['class'] == hotel:
+                            hotel = class_['name']
                     hotel_display = QLineEdit(hotel)
                     hotel_display.setReadOnly(True)
                     layout.addWidget(hotel_label)
@@ -5445,9 +5866,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteHotelDataInToSql(u_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Hotel_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5584,16 +6006,28 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(pic_describe3_label)
                     layout.addWidget(pic_describe3_display)
                     class1_label = QLabel("餐廳類型1:")
+                    cndata1 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        if class_['class'] == class1:
+                            class1 = class_['name']
                     class1_display = QLineEdit(class1)
                     class1_display.setReadOnly(True)
                     layout.addWidget(class1_label)
                     layout.addWidget(class1_display)
                     class2_label = QLabel("餐廳類型2:")
+                    cndata2 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        if class_['class'] == class2:
+                            class2 = class_['name']
                     class2_display = QLineEdit(class2)
                     class2_display.setReadOnly(True)
                     layout.addWidget(class2_label)
                     layout.addWidget(class2_display)
                     class3_label = QLabel("餐廳類型3:")
+                    cndata3 = get_restaurant_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        if class_['class'] == class3:
+                            class3 = class_['name']
                     class3_display = QLineEdit(class3)
                     class3_display.setReadOnly(True)
                     layout.addWidget(class3_label)
@@ -5632,9 +6066,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteRestaurantDataInToSql(u_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Restaurant_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5800,16 +6235,28 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(Py_label)
                     layout.addWidget(Py_display)
                     class1_label = QLabel("景點類型1:")
+                    cndata1 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        if class_['class'] == class1:
+                            class1 = class_['name']
                     class1_display = QLineEdit(class1)
                     class1_display.setReadOnly(True)
                     layout.addWidget(class1_label)
                     layout.addWidget(class1_display)
                     class2_label = QLabel("景點類型2:")
+                    cndata2 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        if class_['class'] == class2:
+                            class2 = class_['name']
                     class2_display = QLineEdit(class2)
                     class2_display.setReadOnly(True)
                     layout.addWidget(class2_label)
                     layout.addWidget(class2_display)
                     class3_label = QLabel("景點類型3:")
+                    cndata3 = get_view_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        if class_['class'] == class3:
+                            class3 = class_['name']
                     class3_display = QLineEdit(class3)
                     class3_display.setReadOnly(True)
                     layout.addWidget(class3_label)
@@ -5843,9 +6290,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteViewDataInToSql(u_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.View_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -5996,18 +6444,30 @@ class Ui_Form(QMainWindow):
                     layout.addWidget(pic_describe3_label)
                     layout.addWidget(pic_describe3_display)
                     class1_label = QLabel("類別1:")
+                    cndata1 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata1):
+                        if class_['class'] == class1:
+                            class1 = class_['name']
                     class1_display = QLineEdit(class1)
                     class1_display.setReadOnly(True)
                     layout.addWidget(class1_label)
                     layout.addWidget(class1_display)
                     class2_label = QLabel("類別2:")
+                    cndata2 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata2):
+                        if class_['class'] == class2:
+                            class2 = class_['name']
                     class2_display = QLineEdit(class2)
                     class2_display.setReadOnly(True)
                     layout.addWidget(class2_label)
                     layout.addWidget(class2_display)
                     class3_label = QLabel("類別3:")
+                    cndata3 = get_activity_class_query()
+                    for idx, class_ in enumerate(cndata3):
+                        if class_['class'] == class3:
+                            class3 = class_['name']
                     class3_display = QLineEdit(class3)
-                    class2_display.setReadOnly(True)
+                    class3_display.setReadOnly(True)
                     layout.addWidget(class3_label)
                     layout.addWidget(class3_display)
                     charge_label = QLabel("收費:")
@@ -6054,9 +6514,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteActivityDataInToSql(u_id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Activity_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6133,9 +6594,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteRouteDataInToSql(travel_Id, Day_Id, tripStart_Id, route_Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Route_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6236,9 +6698,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteTripDataInToSql(Travel_Id, Day_Id, View_Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Trip_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6315,9 +6778,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteRecordTripDataInToSql(user_Id, Travel_Id, Day_Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_Trip_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6382,9 +6846,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteTravelDataInToSql(Travel_Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.Travel_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6455,9 +6920,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteRecordTravelDataInToSql(user_Id, Travel_Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_Travel_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6534,9 +7000,10 @@ class Ui_Form(QMainWindow):
                         try:
                             deleteRecordViewDataInToSql(user_Id, Type, Id)
                             print("success")
-                            success_msg= f"資料刪除成功，請刷新表格查看結果"
+                            success_msg= f"資料刪除成功!"
                             dialog.accept()
                             show_success_message(success_msg)
+                            self.refresh_table(table_name)
                             self.set_tableButtonSelected(self.User_Record_View_Button)
                         except Exception as e:
                             print("Error delete data:", e)
@@ -6725,6 +7192,7 @@ class Login_Form(QMainWindow):
                 background-color: gray;
             }
         """)
+        self.pushButton.setDefault(True)
         self.pushButton.clicked.connect(self.on_login_clicked)
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -6746,9 +7214,9 @@ class Login_Form(QMainWindow):
         msg_box = QMessageBox()
         msg_box.setIcon(QMessageBox.Information)
         msg_box.setWindowTitle("提示")
-        QMessageBox.information(self, "提示", "首次登入請先至Manager表格中<br>刪除中及密碼，並新增自己的管理者密碼!")
+        QMessageBox.information(self, "提示", "首次登入請先至Manager表格中刪除預設密碼，以確保系統安全性，並新增自己的管理者密碼!")
         dialog = QDialog()
-        dialog.setWindowTitle("Insert")
+        dialog.setWindowTitle("請註冊管理者帳號!")
         dialog.setModal(True)
         dialog.setFixedSize(380, 130)
         layout = QVBoxLayout()
@@ -6768,44 +7236,44 @@ class Login_Form(QMainWindow):
         layout.addWidget(insert_button, alignment=Qt.AlignCenter)
         dialog.setLayout(layout)
         def show_error_message(message):
-                msg = QDialog()
-                msg.setWindowTitle("錯誤")
-                msg.setModal(True)
-                layout = QVBoxLayout()
-                text_label = QLabel(message)
-                text_label.setAlignment(Qt.AlignCenter)
-                layout.addWidget(text_label)
-                ok_button = QPushButton("確定")
-                ok_button.clicked.connect(msg.accept)
-                ok_button.setFixedWidth(100)
-                ok_button.setFixedHeight(30)
-                layout.addWidget(ok_button, alignment=Qt.AlignCenter)
-                msg.setLayout(layout)
-                msg.adjustSize()       
-                msg.exec_()
+            msg = QDialog()
+            msg.setWindowTitle("錯誤")
+            msg.setModal(True)
+            layout = QVBoxLayout()
+            text_label = QLabel(message)
+            text_label.setAlignment(Qt.AlignCenter)
+            layout.addWidget(text_label)
+            ok_button = QPushButton("確定")
+            ok_button.clicked.connect(msg.accept)
+            ok_button.setFixedWidth(100)
+            ok_button.setFixedHeight(30)
+            layout.addWidget(ok_button, alignment=Qt.AlignCenter)
+            msg.setLayout(layout)
+            msg.adjustSize()       
+            msg.exec_()
         def show_success_message(message):
-                msg = QDialog()
-                msg.setWindowTitle("提示")
-                msg.setModal(True)
-                layout = QVBoxLayout()
-                text_label = QLabel(message)
-                text_label.setAlignment(Qt.AlignCenter)
-                layout.addWidget(text_label)
-                ok_button = QPushButton("確定")
-                ok_button.clicked.connect(msg.accept)
-                ok_button.setFixedWidth(100)
-                ok_button.setFixedHeight(30)
-                layout.addWidget(ok_button, alignment=Qt.AlignCenter)
-                msg.setLayout(layout)
-                msg.adjustSize()       
-                msg.exec_()
+            msg = QDialog()
+            msg.setWindowTitle("提示")
+            msg.setModal(True)
+            layout = QVBoxLayout()
+            text_label = QLabel(message)
+            text_label.setAlignment(Qt.AlignCenter)
+            layout.addWidget(text_label)
+            ok_button = QPushButton("確定")
+            ok_button.clicked.connect(msg.accept)
+            ok_button.setFixedWidth(100)
+            ok_button.setFixedHeight(30)
+            layout.addWidget(ok_button, alignment=Qt.AlignCenter)
+            msg.setLayout(layout)
+            msg.adjustSize()       
+            msg.exec_()
         def insert_manager_data():
             managername = managername_input.text()
             manager_password = manager_password_input.text()
             try:
                 insertManagerDataInToSql(managername, manager_password)
                 print("success")
-                success_msg= f"插入資料成功，請刷新表格查看結果"
+                success_msg= f"插入資料成功!"
                 dialog.accept()
                 show_success_message(success_msg)
             except Exception as e:
@@ -6813,13 +7281,16 @@ class Login_Form(QMainWindow):
                 error_msg= f"插入資料錯誤，請先確認資料有無錯誤"
                 dialog.accept()
                 show_error_message(error_msg)
+            # except:
+            #     dialog.accept()
         insert_button.clicked.connect(insert_manager_data)
-        dialog.exec_()         
+        dialog.exec_()        
     def show_loading_animation(self):
             self.loading_dialog = QDialog(self)
             self.loading_dialog.setFixedSize(400, 300)
             self.loading_dialog.setWindowTitle("加載中")
             self.loading_dialog.setModal(True)
+            self.loading_dialog.setWindowFlags(self.loading_dialog.windowFlags() & ~Qt.WindowCloseButtonHint)
             self.layout = QVBoxLayout()
             self.base_dir = os.path.dirname(os.path.abspath(__file__))
             self.img_dir = os.path.join(self.base_dir, 'source', 'img')
@@ -6834,7 +7305,7 @@ class Login_Form(QMainWindow):
             self.layout.addWidget(self.loading_label)
             self.loading_dialog.setLayout(self.layout)
             self.movie.start()
-            self.loading_dialog.show()
+            self.loading_dialog.show() 
     def on_login_clicked(self):
         isInit = False
         connection = pymysql.connect(host='127.0.0.1', user='root', password='', database='')
@@ -6844,69 +7315,161 @@ class Login_Form(QMainWindow):
             isInit = True
         except:
             pass
-        connection.close()
-        
+        connection.close()   
         db = MySQLDatabase(host='127.0.0.1', user='root', password='', database='city')
         if not db.check_table_exists('manager'):
             db.create_table('manager', ['username', 'userpassword'])
-            insertManagerDataInToSql('root', '1234')     
-            
+            insertManagerDataInToSql('root', '1234')  
         username = self.lineEdit_2.text()
         password = self.lineEdit.text()
         print(f"Username: {username}, Password: {password}")
         db = MySQLDatabase(host='127.0.0.1', user='root', password='', database='city')
         query = f"SELECT * FROM `manager` WHERE `username` = \"{username}\" AND `userpassword` = \"{password}\""
+        query_ex = f"SELECT * FROM `manager`"
         self.manager_data = db.execute_query(query)
+        self.manager_ex_data = self.db.execute_query(query_ex)  
         try:
-            self.manager_data = self.db.execute_query(query)
-            if self.manager_data:
-                if isInit:
+            if self.manager_ex_data:
+                if self.manager_data:
+                    if isInit:
+                        dialog = QDialog()
+                        dialog.setWindowTitle("提示")
+                        dialog.setModal(True)
+                        dialog.adjustSize()
+                        layout = QVBoxLayout()
+                        text_label = QLabel("首次登入，需要載入資料庫，可能需要花費一點時間!")
+                        text_label.setAlignment(QtCore.Qt.AlignCenter)
+                        layout.addWidget(text_label)
+                        layout.addStretch(1)
+                        ok_button = QPushButton("確定")
+                        ok_button.clicked.connect(dialog.accept)
+                        ok_button.setFixedWidth(100)
+                        ok_button.setFixedHeight(30)
+                        button_layout = QHBoxLayout()
+                        button_layout.addStretch(1)
+                        button_layout.addWidget(ok_button)
+                        button_layout.addStretch(1)
+                        layout.addLayout(button_layout)
+                        dialog.setLayout(layout)
+                        if dialog.exec_() == QDialog.Accepted:
+                            self.show_loading_animation()
+                            self.initialize_data()
+                    else:
+                        self.close()
+                        self.accepted_signal.emit()
+                else:
                     dialog = QDialog()
                     dialog.setWindowTitle("提示")
                     dialog.setModal(True)
-                    dialog.adjustSize()
+                    dialog.resize(192, 108)
                     layout = QVBoxLayout()
-                    text_label = QLabel("首次登入，需要載入資料庫，可能需要花費一點時間!")
-                    text_label.setAlignment(QtCore.Qt.AlignCenter)
+                    text_label = QLabel("帳號或密碼錯誤，請確認後重新嘗試")
+                    text_label.setAlignment(Qt.AlignCenter)
                     layout.addWidget(text_label)
-                    layout.addStretch(1)
                     ok_button = QPushButton("確定")
                     ok_button.clicked.connect(dialog.accept)
                     ok_button.setFixedWidth(100)
                     ok_button.setFixedHeight(30)
-                    button_layout = QHBoxLayout()
-                    button_layout.addStretch(1)
-                    button_layout.addWidget(ok_button)
-                    button_layout.addStretch(1)
-                    layout.addLayout(button_layout)
-                    dialog.setLayout(layout)
-                    if dialog.exec_() == QDialog.Accepted:
-                        self.show_loading_animation()
-                        self.initialize_data()
-                else:
-                    self.close()
-                    self.accepted_signal.emit()      
+                    layout.addWidget(ok_button, alignment=Qt.AlignCenter)            
+                    dialog.setLayout(layout)            
+                    dialog.exec_()
             else:
+                def show_error_message(message):
+                    msg = QDialog()
+                    msg.setWindowTitle("錯誤")
+                    msg.setModal(True)
+                    layout = QVBoxLayout()
+                    text_label = QLabel(message)
+                    text_label.setAlignment(Qt.AlignCenter)
+                    layout.addWidget(text_label)
+                    ok_button = QPushButton("確定")
+                    ok_button.clicked.connect(msg.accept)
+                    ok_button.setFixedWidth(100)
+                    ok_button.setFixedHeight(30)
+                    layout.addWidget(ok_button, alignment=Qt.AlignCenter)
+                    msg.setLayout(layout)
+                    msg.adjustSize()       
+                    msg.exec_()
+                def show_success_message(message):
+                    msg = QDialog()
+                    msg.setWindowTitle("提示")
+                    msg.setModal(True)
+                    layout = QVBoxLayout()
+                    text_label = QLabel(message)
+                    text_label.setAlignment(Qt.AlignCenter)
+                    layout.addWidget(text_label)
+                    ok_button = QPushButton("確定")
+                    ok_button.clicked.connect(msg.accept)
+                    ok_button.setFixedWidth(100)
+                    ok_button.setFixedHeight(30)
+                    layout.addWidget(ok_button, alignment=Qt.AlignCenter)
+                    msg.setLayout(layout)
+                    msg.adjustSize()       
+                    msg.exec_()
+                db.create_table('manager', ['username', 'userpassword'])
+                insertManagerDataInToSql('root', '1234')
                 dialog = QDialog()
                 dialog.setWindowTitle("提示")
                 dialog.setModal(True)
-                dialog.resize(192, 108)
+                dialog.adjustSize()
                 layout = QVBoxLayout()
-                text_label = QLabel("帳號或密碼錯誤，請確認後重新嘗試")
-                text_label.setAlignment(Qt.AlignCenter)
+                text_label = QLabel("偵測到Manager為空，已將密碼更新為預設密碼!")
+                text_label.setAlignment(QtCore.Qt.AlignCenter)
                 layout.addWidget(text_label)
+                layout.addStretch(1)
                 ok_button = QPushButton("確定")
                 ok_button.clicked.connect(dialog.accept)
                 ok_button.setFixedWidth(100)
                 ok_button.setFixedHeight(30)
-                layout.addWidget(ok_button, alignment=Qt.AlignCenter)            
-                dialog.setLayout(layout)            
+                button_layout = QHBoxLayout()
+                button_layout.addStretch(1)
+                button_layout.addWidget(ok_button)
+                button_layout.addStretch(1)
+                layout.addLayout(button_layout)
+                dialog.setLayout(layout)
+                dialog.exec_()
+                self.close()
+                self.accepted_signal.emit()
+                dialog = QDialog()
+                dialog.setWindowTitle("請重新註冊管理者帳號!")
+                dialog.setModal(True)
+                dialog.setFixedSize(380, 130)
+                layout = QVBoxLayout()
+                managername_layout = QHBoxLayout()
+                managername_label = QLabel("Manager Name:")
+                managername_input = QLineEdit()
+                managername_layout.addWidget(managername_label)
+                managername_layout.addWidget(managername_input)
+                manager_password_layout = QHBoxLayout()
+                manager_password_label = QLabel("Manager Password:")
+                manager_password_input = QLineEdit()
+                manager_password_layout.addWidget(manager_password_label)
+                manager_password_layout.addWidget(manager_password_input)
+                layout.addLayout(managername_layout)
+                layout.addLayout(manager_password_layout)
+                insert_button = QPushButton("Insert")
+                layout.addWidget(insert_button, alignment=Qt.AlignCenter)
+                dialog.setLayout(layout)
+                def insert_manager_data():
+                    managername = managername_input.text()
+                    manager_password = manager_password_input.text()
+                    try:
+                        insertManagerDataInToSql(managername, manager_password)
+                        print("success")
+                        success_msg= f"插入資料成功!"
+                        dialog.accept()
+                        show_success_message(success_msg)
+                    except Exception as e:
+                        print("Error inserting data:", e)
+                        error_msg= f"插入資料錯誤，請先確認資料有無錯誤"
+                        dialog.accept()
+                        show_error_message(error_msg)
+                insert_button.clicked.connect(insert_manager_data)
                 dialog.exec_()
         except pymysql.MySQLError as e:
             self.show_dialog("錯誤", f"資料庫操作失敗: {e}")
 
 if __name__ == "__main__":
-    
     import sys
     app = QApplication(sys.argv)
     Form = QtWidgets.QWidget()
